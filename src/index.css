@@ -16,6 +16,9 @@ body {
 .justify-center {
   justify-content: center;
 }
+li {
+  list-style: none;
+}
 
 :root {
   --primary-color: #7b19f7;

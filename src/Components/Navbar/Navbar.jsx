@@ -14,9 +14,11 @@ export const NavBar = () => {
           src="./assets/logo-blue.png"
           alt="mt-logo"
         />
-        <div className="nav-items flex-center">
-          <span className="nav-item">Explore</span>
-          <span className="nav-item">PlayList</span>
+        <div className="flex-center">
+          <ul className="nav-items">
+            <li className="nav-item">Explore</li>
+            <li className="nav-item">PlayList</li>
+          </ul>
         </div>
       </div>
 
