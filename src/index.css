@@ -5,6 +5,7 @@
   padding: 0;
 }
 body {
+  font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Roboto Condensed", sans-serif;
@@ -22,8 +23,11 @@ li {
 
 :root {
   --primary-color: #7b19f7;
+  --blue-saphhire: #0b4f6c;
+  --purple-color: #7b89e6;
+  --primary-medium-color: #603d8f;
   --primary-dark-color: #460b94;
-  --primary-light: #9340ff;
+  --primary-light: #7d42cf;
   --olive-color: #949100;
   --secondary-color: #b4b23b;
   --light-olive: #e0dc22;

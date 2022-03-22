@@ -22,7 +22,7 @@
 }
 .nav-item {
   font-size: 2rem;
-  color: var(--medium-teal);
+  color: var(--purple-color);
 }
 .Header-input-center {
   width: 30%;
@@ -42,10 +42,10 @@
 .header-icon {
   font-size: 2.5rem;
   margin-right: auto;
-  color: var(--medium-teal);
+  color: var(--purple-color);
 }
 .title {
-  color: var(--light-teal);
+  color: var(--primary-light);
   font-size: 1.3rem;
 }
 .icon-with-title {
@@ -65,6 +65,7 @@
   .Header-input-center {
     position: absolute;
     top: 9rem;
+
     width: 95%;
   }
   .menu-icon {
