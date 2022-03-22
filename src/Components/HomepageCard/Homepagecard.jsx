@@ -12,7 +12,7 @@ export const HomePageCard = ({ category, index }) => {
         <h2 className="category-title"> {categoryName}</h2>
         <p className="category-description">{subDescription}.</p>
         <span>
-          <button className="btn btn-primary-first">Check Now</button>
+          <button className="btn btn-primary-first">Watch Now</button>
         </span>
       </div>
     </div>
