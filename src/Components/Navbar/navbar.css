@@ -48,6 +48,11 @@
   color: var(--light-teal);
   font-size: 1.3rem;
 }
+.icon-with-title {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
 /* media query */
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .Header-container {
@@ -65,7 +70,11 @@
   .menu-icon {
     display: block;
   }
-  .header-icon {
+  .icon-with-title {
+    display: none;
     margin-right: auto;
+  }
+  .nav-items {
+    display: none;
   }
 }
