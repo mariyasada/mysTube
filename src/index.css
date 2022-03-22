@@ -20,6 +20,16 @@ body {
 li {
   list-style: none;
 }
+.btn-primary-first {
+  background-color: var(--primary-medium-color);
+  width: 11rem;
+}
+.btn-primary-first:hover {
+  border: 1px solid;
+  color: var(--primary-dark-color);
+  font-weight: bold;
+  cursor: pointer;
+}
 
 :root {
   --primary-color: #7b19f7;
@@ -28,6 +38,7 @@ li {
   --primary-medium-color: #603d8f;
   --primary-dark-color: #460b94;
   --primary-light: #7d42cf;
+  --primary-extra-light: #d7d6d8;
   --olive-color: #949100;
   --secondary-color: #b4b23b;
   --light-olive: #e0dc22;

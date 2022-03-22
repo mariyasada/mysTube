@@ -1,5 +1,7 @@
 import React from "react";
+import { HomePageCard, Categories } from "../../Components";
 import "../Home/Home.css";
+import { homepageData } from "./HomepageData";
 
 export const Home = () => {
   return (
@@ -22,6 +24,7 @@ export const Home = () => {
           </span>
         </div>
       </div>
+      <Categories />
     </div>
   );
 };
