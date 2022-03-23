@@ -20,11 +20,7 @@ export const NavBar = () => {
             <FiMenu className="menu-icon" onClick={() => setOpen(!open)} />
           )}
         </div>
-        <img
-          className="image-logo"
-          src="./assets/logo-blue.png"
-          alt="mt-logo"
-        />
+        <img className="image-logo" src="./assets/logo.png" alt="mt-logo" />
         <div className="flex-center nav-items-container">
           <ul className="nav-items">
             <li className="nav-item">Explore</li>

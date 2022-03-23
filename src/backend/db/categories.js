@@ -8,20 +8,34 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
+    categoryName: "Alcoholic Ink Art",
+    image:"./assets/alcoholink.jpg",
+    subDescription:"Top beginner friendly videos to learn the different techniques of Alcohol Ink Art. How you can paint your vessel using this art.",
     description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+      "Alcohol inks are brightly colored dye-based paints that are most often used in creating free flowing textures.",
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
+    categoryName: "Resin Art",
+    image:"./assets/costers1.jpg",
+    subDescription:"Top videos to learn how to make coasters,key-chains,wall piece with Resin art.",
     description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+      "Resin art is a unique painting style where you do not use typical brushes or acrylic or oil paints. It is considered advanced painting for the new age creative crowd.",
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
+    categoryName: "Acrylic Fluid Art",
+    image:"./assets/acrylic.jpg",
+    subDescription:"Top videos to learn the Acrylic Fluid Art",
     description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+      "Besides canvas, paper, and card, you can use acrylics to paint on glass and plastic, metal and stone, fabric, and leather.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Mehendi Art",
+    image:"./assets/mehendi2.jpg",
+    subDescription:"Top easy videos to learn the basic Mehendi Art and styles like arabic mehndi,indo-arabic etc.",
+    description:
+      "Mehndi (also called Mehandi) is the traditional art of painting the hands, feet or body with a paste made from the powdered, dried leaves of the henna plant.",
   },
 ];
