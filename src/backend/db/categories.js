@@ -10,7 +10,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "Alcoholic Ink Art",
     image:"./assets/alcoholink.jpg",
-    subDescription:"Top beginner friendly videos to learn the different techniques of Alcohol Ink Art.",
+    subDescription:"Top beginner friendly videos to learn the different techniques of Alcohol Ink Art. How you can paint your vessel using this art.",
     description:
       "Alcohol inks are brightly colored dye-based paints that are most often used in creating free flowing textures.",
   },

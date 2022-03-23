@@ -1,5 +1,5 @@
 .Category-card-container {
-  height: 450px;
+  height: 46rem;
   width: 100%;
   gap: 1rem;
   cursor: pointer !important;
@@ -19,8 +19,8 @@
 }
 .category-image {
   cursor: pointer;
-  height: 400px;
-  width: 400px;
+  height: 41rem;
+  width: 41rem;
   padding: 0.8rem;
   border: 2px solid var(--primary-color);
 }
@@ -47,7 +47,7 @@
     flex-direction: column;
     align-items: center;
     padding: 4px;
-    margin-bottom: 12rem;
+    margin-bottom: 13rem;
   }
   .category-description-container {
     margin-left: 2rem;
