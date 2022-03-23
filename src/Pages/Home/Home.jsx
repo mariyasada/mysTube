@@ -1,7 +1,6 @@
 import React from "react";
-import { HomePageCard, Categories } from "../../Components";
-import "../Home/Home.css";
-import { homepageData } from "./HomepageData";
+import { HomePageCard, Categories, Footer } from "../../Components";
+import "./Home.css";
 
 export const Home = () => {
   return (
@@ -25,6 +24,7 @@ export const Home = () => {
         </div>
       </div>
       <Categories />
+      <Footer />
     </div>
   );
 };

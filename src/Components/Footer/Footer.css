@@ -1,0 +1,19 @@
+.footer {
+  background-color: var(--white-color);
+  box-shadow: 0.3rem 0.2rem 1rem var(--light-stone);
+  padding: 2rem 1rem;
+  color: var(--primary-dark-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-width: 100%;
+}
+
+.footer-heading {
+  font-size: medium;
+  color: var(--primary-dark-color);
+}
+.nav-icon {
+  color: var(--primary-dark-color);
+}
