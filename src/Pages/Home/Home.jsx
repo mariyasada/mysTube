@@ -1,5 +1,5 @@
 import React from "react";
-import { HomePageCard, Categories } from "../../Components";
+import { HomePageCard, Categories, Footer } from "../../Components";
 import "../Home/Home.css";
 import { homepageData } from "./HomepageData";
 
@@ -25,6 +25,7 @@ export const Home = () => {
         </div>
       </div>
       <Categories />
+      <Footer />
     </div>
   );
 };
