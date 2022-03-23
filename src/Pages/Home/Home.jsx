@@ -1,7 +1,6 @@
 import React from "react";
 import { HomePageCard, Categories, Footer } from "../../Components";
-import "../Home/Home.css";
-import { homepageData } from "./HomepageData";
+import "./Home.css";
 
 export const Home = () => {
   return (
