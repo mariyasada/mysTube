@@ -7,6 +7,7 @@ import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -20,11 +21,17 @@ export const NavBar = () => {
             <FiMenu className="menu-icon" onClick={() => setOpen(!open)} />
           )}
         </div>
-        <img className="image-logo" src="./assets/logo.png" alt="mt-logo" />
+        <Link to="/">
+          <img className="image-logo" src="./assets/logo.png" alt="mt-logo" />
+        </Link>
         <div className="flex-center nav-items-container">
           <ul className="nav-items">
-            <li className="nav-item">Explore</li>
-            <li className="nav-item">PlayList</li>
+            <Link to="/videopage">
+              <li className="nav-item">Explore</li>
+            </Link>
+            <Link to="/">
+              <li className="nav-item">PlayList</li>
+            </Link>
           </ul>
         </div>
       </div>

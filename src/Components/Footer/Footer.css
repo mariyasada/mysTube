@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  min-width: 100%;
+  width: 100%;
 }
 
 .footer-heading {
@@ -16,4 +16,16 @@
 }
 .nav-icon {
   color: var(--primary-dark-color);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-items {
+    margin-right: auto;
+  }
+  .nav-icon {
+    font-size: 1.3rem;
+  }
 }
