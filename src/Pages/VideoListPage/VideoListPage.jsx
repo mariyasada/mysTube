@@ -6,7 +6,7 @@ export const VideoListPage = () => {
   return (
     <div className="Video-page-list-container flex-center">
       <SideBar />
-      <div className="filter-video-container flex-center">
+      <div className="filter-video-container flex-center flex-direction-column">
         <FilterBar />
         <VideoCard />
       </div>

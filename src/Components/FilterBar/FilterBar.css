@@ -29,13 +29,11 @@
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .all-filter-conatiner {
-    margin-left: -20rem;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin: 2rem 0 0 -20rem;
   }
   .filter-item-container {
-    margin-top: 4px;
-    margin-left: 6px;
+    margin: 4px 0 0 6px;
   }
   .filter-item {
     margin-bottom: -8px;

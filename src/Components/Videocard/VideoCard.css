@@ -3,8 +3,7 @@
   width: 30rem;
   flex-direction: column;
   border: 2px solid var(--light-stone);
-  margin-left: 20rem;
-  margin-top: 12rem;
+  margin: 12rem 0 0 20rem;
 }
 
 .image-of-video {
@@ -26,7 +25,6 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 3px;
-  /* background-color: aqua; */
 }
 .title-of-video {
   font-size: 1.9rem;
@@ -49,8 +47,7 @@
 .more-info-dots-container {
   font-size: 2rem;
   align-self: flex-start;
-  margin-left: 9px;
-  margin-top: 1px;
+  margin: 1px 0 0 9px;
 }
 .avatar-xsm {
   height: 4rem;
@@ -61,8 +58,4 @@
   color: var(--light-stone);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
-  /* .image-of-video  {
-    height: 25rem;
-    width: 29rem;
-    /* margin-right: 19rem; */
 }
