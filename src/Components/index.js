@@ -5,3 +5,5 @@ export {Categories} from "../Components/categories/Categories";
 export {Footer} from "../Components/Footer/Footer";
 export {SideBar} from "../Components/SideBar/SideBar";
 export {SideBarRow} from "../Components/SidebarRow/SideBarRow"
+export {VideoCard} from "../Components/Videocard/VideoCard"
+export {FilterBar} from "../Components/FilterBar/FilterBar"
