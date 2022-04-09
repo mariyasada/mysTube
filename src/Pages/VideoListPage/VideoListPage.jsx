@@ -8,7 +8,16 @@ export const VideoListPage = () => {
       <SideBar />
       <div className="filter-video-container flex-center flex-direction-column">
         <FilterBar />
-        <VideoCard />
+        <div className="Videocard-listing-grid-column-layout">
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+        </div>
       </div>
     </div>
   );

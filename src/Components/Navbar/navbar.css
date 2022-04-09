@@ -23,6 +23,7 @@
 .nav-item {
   font-size: 2rem;
   color: var(--primary-medium-color);
+  cursor: pointer;
 }
 .Header-input-center {
   width: 30%;
@@ -38,14 +39,16 @@
   border: none;
   outline: none;
   width: 70%;
+  background: transparent;
 }
 .header-icon {
   font-size: 2.5rem;
   margin-right: auto;
   color: var(--primary-medium-color);
+  cursor: pointer;
 }
 .title {
-  color: var(--primary-light);
+  color: var(--primary-medium-color);
   font-size: 1.3rem;
 }
 .icon-with-title {
