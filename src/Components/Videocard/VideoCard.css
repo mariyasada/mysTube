@@ -1,0 +1,61 @@
+.video-card-container {
+  height: 26rem;
+  width: 30rem;
+  flex-direction: column;
+  border: 2px solid var(--light-stone);
+  margin: 12rem 0 0 20rem;
+}
+
+.image-of-video {
+  height: 17rem;
+  width: 30rem;
+  object-fit: cover;
+  padding: 3px;
+}
+.video-description-container {
+  width: inherit;
+  gap: 10px;
+}
+.avatar-image-container {
+  margin-left: 9px;
+  object-fit: contain;
+  align-self: flex-start;
+}
+.video-title-autor-detail-container {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3px;
+}
+.title-of-video {
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+.Channel-name {
+  font-size: 1.4rem;
+  align-self: flex-start;
+}
+.category-level-container {
+  align-self: flex-start;
+  font-size: 1.3rem;
+  font-weight: bold;
+  gap: 9px;
+}
+.dot-icon {
+  font-size: 2rem;
+  margin-right: -8px;
+}
+.more-info-dots-container {
+  font-size: 2rem;
+  align-self: flex-start;
+  margin: 1px 0 0 9px;
+}
+.avatar-xsm {
+  height: 4rem;
+  width: 4rem;
+}
+.level-of-video {
+  gap: 7px;
+  color: var(--light-stone);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+}

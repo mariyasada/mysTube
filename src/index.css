@@ -30,6 +30,9 @@ li {
   font-weight: bold;
   cursor: pointer;
 }
+.flex-direction-column {
+  flex-direction: column;
+}
 
 :root {
   --primary-color: #7b19f7;
