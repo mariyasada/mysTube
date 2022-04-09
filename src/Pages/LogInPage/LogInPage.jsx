@@ -16,6 +16,7 @@ export const LogInPage = () => {
             type="email"
             placeholder="abc@gmail.com"
             className="input-textbox"
+            id="Email"
             required
           />
         </div>
@@ -27,6 +28,7 @@ export const LogInPage = () => {
             type="password"
             placeholder="*********"
             className="input-textbox"
+            id="password"
             required
           />
           <span className="show-hide-toggle-icon flex-center">

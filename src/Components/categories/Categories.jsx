@@ -5,18 +5,8 @@ import { useCategory } from "../../Context/category-context";
 import { HomePageCard } from "../HomepageCard/Homepagecard";
 
 export const Categories = () => {
-  // const [categories, setCategories] = useState([]);
   const { categories, setCategories } = useCategory();
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const { data } = await axios.get("/api/categories");
-  //       setCategories(data.categories);
-  //     } catch {
-  //       console.error("something went wrong");
-  //     }
-  //   })();
-  // });
+
   return (
     <div>
       {categories.map((category, index) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useCategory } from "../../Context/category-context";
+import { useCategory } from "../../Context";
 import "./FilterBar.css";
 
 export const FilterBar = () => {

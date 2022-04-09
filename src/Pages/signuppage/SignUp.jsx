@@ -16,6 +16,7 @@ export const SignUpPage = () => {
           type="text"
           placeholder="Full Name"
           className="input-textbox"
+          id="Name"
           required
         />
       </div>
@@ -27,6 +28,7 @@ export const SignUpPage = () => {
           type="email"
           placeholder="abc@gmail.com"
           className="input-textbox"
+          id="Email"
           required
         />
       </div>
@@ -38,6 +40,7 @@ export const SignUpPage = () => {
           type="password"
           placeholder="*********"
           className="input-textbox"
+          id="password"
           required
         />
         <span className="show-hige-toggle-icon password-badge flex-center">
@@ -45,13 +48,14 @@ export const SignUpPage = () => {
         </span>
       </div>
       <div className="label-input-container flex-center flex-direction-column">
-        <label htmlFor="password" className="label-for-login ">
+        <label htmlFor="Confirm password" className="label-for-login ">
           Confirm Password
         </label>
         <input
           type="password"
           placeholder="*********"
           className="input-textbox"
+          id="Confirm password"
           required
         />
         <span className="show-hige-toggle-icon confirm-password-badge flex-center">
