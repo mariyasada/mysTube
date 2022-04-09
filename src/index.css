@@ -33,6 +33,14 @@ li {
 .flex-direction-column {
   flex-direction: column;
 }
+.input-textbox:focus {
+  border: 1px solid var(--olive-color);
+  box-shadow: 2px 2px 4px var(--light-stone);
+  outline: none;
+}
+.btn:hover {
+  border: none;
+}
 
 :root {
   --primary-color: #7b19f7;
@@ -46,4 +54,5 @@ li {
   --secondary-color: #b4b23b;
   --light-olive: #e0dc22;
   --gray-color: rgb(211, 209, 209);
+  --primary-black: #141414;
 }

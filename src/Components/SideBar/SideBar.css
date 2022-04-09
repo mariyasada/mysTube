@@ -16,8 +16,7 @@
   font-weight: 300;
   padding: 9px;
   padding-left: 1.9rem;
-  margin: 10px;
-  margin-left: 0;
+  margin: 10px 0;
   width: 17rem;
   text-align: left;
 }
@@ -26,7 +25,6 @@
 }
 .sidebar-item-with-icon:hover {
   background-color: var(--primary-light);
-  border-radius: 5px;
   color: var(--white-color);
   cursor: pointer;
 }

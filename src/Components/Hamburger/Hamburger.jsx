@@ -9,7 +9,7 @@ export const Hamburger = () => {
         <Link to="/" className="hamburger-menu-item">
           Home
         </Link>
-        <Link to="/" className="hamburger-menu-item">
+        <Link to="/videopage" className="hamburger-menu-item">
           Explore
         </Link>
         <Link to="/" className="hamburger-menu-item">
@@ -21,7 +21,7 @@ export const Hamburger = () => {
         <Link to="/" className="hamburger-menu-item">
           Watch later
         </Link>
-        <Link to="/" className="hamburger-menu-item">
+        <Link to="/loginpage" className="hamburger-menu-item">
           Login
         </Link>
       </ul>

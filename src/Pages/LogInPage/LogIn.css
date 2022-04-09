@@ -1,0 +1,86 @@
+.login-container {
+  width: 45rem;
+  height: auto;
+  box-shadow: 5px 5px 10px var(--light-stone);
+  margin: 17rem auto;
+  position: relative;
+  background-color: var(--white-color);
+  padding: 2rem;
+}
+.login-container .label-input-container {
+  width: 100%;
+  justify-content: center;
+}
+.heading {
+  color: var(--primary-medium-color);
+  margin-bottom: 1rem;
+}
+.label-for-login {
+  font-size: 2rem;
+  color: var(--primary-medium-color);
+  margin: 2rem 0 1rem 6rem;
+  align-self: flex-start;
+}
+.input-textbox {
+  width: 30rem;
+  min-width: 25rem;
+  border-radius: 7px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  border: 1px solid var(--primary-dark-color);
+  cursor: pointer;
+}
+.remeber-and-forgotpasword-container {
+  font-size: 1.6rem;
+  gap: 5.7rem;
+  margin: 8px;
+  color: var(--primary-medium-color);
+}
+.input-rememberme {
+  margin-right: 5px;
+}
+.forgotpassword-text,
+.signup-link {
+  color: var(--olive-color);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn.login-btn {
+  background-color: var(--primary-dark-color);
+  width: 15rem;
+  margin-top: 2rem;
+  color: var(--white-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+.new-user-link-container {
+  font-size: 1.7rem;
+  gap: 3rem;
+  margin-top: 1rem;
+  color: var(--primary-color);
+}
+.show-hide-toggle-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 21rem;
+  right: 10rem;
+  justify-content: center;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .login-container {
+    width: 33rem;
+  }
+  .input-textbox {
+    width: 20rem;
+  }
+  .label-for-login {
+    margin-left: 2rem;
+  }
+  .remeber-and-forgotpasword-container {
+    gap: 3rem;
+    font-size: 1.5rem;
+  }
+  .show-hide-toggle-icon {
+    right: 6rem;
+  }
+}

@@ -1,0 +1,20 @@
+.show-hige-toggle-icon.password-badge {
+  top: 30rem;
+}
+.show-hige-toggle-icon.password-badge,
+.show-hige-toggle-icon.confirm-password-badge {
+  position: absolute;
+  justify-content: center;
+  font-size: 2rem;
+  right: 10rem;
+}
+
+.show-hige-toggle-icon.confirm-password-badge {
+  top: 39rem;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .show-hige-toggle-icon.confirm-password-badge,
+  .show-hige-toggle-icon.password-badge {
+    right: 7rem;
+  }
+}

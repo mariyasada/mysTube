@@ -7,10 +7,14 @@ import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const NavBar = () => {
+  const getActiveLink = ({ isActive }) => ({
+    color: isActive ? "red" : "#603d8f",
+  });
   const [open, setOpen] = useState(false);
+
   return (
     <div className="Header-container flex-center">
       <div className="header-left-logo flex-center">
@@ -21,17 +25,17 @@ export const NavBar = () => {
             <FiMenu className="menu-icon" onClick={() => setOpen(!open)} />
           )}
         </div>
-        <Link to="/">
+        <NavLink to="/">
           <img className="image-logo" src="./assets/logo.png" alt="mt-logo" />
-        </Link>
+        </NavLink>
         <div className="flex-center nav-items-container">
           <ul className="nav-items">
-            <Link to="/videopage">
-              <li className="nav-item">Explore</li>
-            </Link>
-            <Link to="/">
-              <li className="nav-item">PlayList</li>
-            </Link>
+            <NavLink to="/videopage" style={getActiveLink} className="nav-item">
+              Explore
+            </NavLink>
+            <NavLink to="/" style={getActiveLink} className="nav-item">
+              PlayList
+            </NavLink>
           </ul>
         </div>
       </div>
@@ -43,8 +47,10 @@ export const NavBar = () => {
 
       <div className="Header-nav-icon-right">
         <span className="icon-with-title">
-          <FaUserAlt className="header-icon" title="logIn" />
-          <p className="title">LogIn</p>
+          <NavLink to="/loginpage">
+            <FaUserAlt className="header-icon" title="logIn" />
+            <p className="title">LogIn</p>
+          </NavLink>
         </span>
       </div>
       {open && <Hamburger className="hamburger-menu-container" />}

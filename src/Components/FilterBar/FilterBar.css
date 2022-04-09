@@ -1,12 +1,13 @@
 .all-filter-conatiner {
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   height: auto;
   width: 100%;
   position: fixed;
   left: 19rem;
-  top: 9rem;
+  top: 8rem;
   cursor: pointer;
   background-color: var(--white-color);
+  z-index: 20;
 }
 .filter-item-container {
   flex-wrap: wrap;
@@ -30,12 +31,17 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .all-filter-conatiner {
     flex-wrap: wrap;
-    margin: 2rem 0 0 -20rem;
+    top: 13.5rem;
+    left: -1rem;
+    height: auto;
+    width: 100%;
+    padding: 7px;
   }
-  .filter-item-container {
-    margin: 4px 0 0 6px;
-  }
+
   .filter-item {
-    margin-bottom: -8px;
+    font-size: 1.4rem;
+    margin: 3px 0 -8px 8px;
+
+    width: auto;
   }
 }

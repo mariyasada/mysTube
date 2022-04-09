@@ -11,6 +11,7 @@ export const Home = () => {
           alt="banner-image"
           className="banner-image"
         />
+
         <div className="quote-container">
           <span className="quote">
             <em>

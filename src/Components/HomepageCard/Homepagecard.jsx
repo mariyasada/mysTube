@@ -8,7 +8,7 @@ export const HomePageCard = ({ category, index }) => {
       <div className="category-image-container flex-center">
         <img className="category-image" src={image} alt="alcoholink image" />
       </div>
-      <div className="category-description-container category-description-container-reverse">
+      <div className="category-description-container">
         <h2 className="category-title"> {categoryName}</h2>
         <p className="category-description">{subDescription}.</p>
         <span>
