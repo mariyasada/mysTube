@@ -1,16 +1,18 @@
 .video-card-container {
   height: 26rem;
-  width: 30rem;
+  width: 32rem;
   flex-direction: column;
   margin: 2rem;
   box-shadow: 3px 3px 3px var(--light-stone);
   cursor: pointer;
   position: relative;
+  border: 1px solid var(--dark-stone);
+  /* background-color: var(--primary-color-light); */
 }
 
 .image-of-video {
   height: 17rem;
-  width: 30rem;
+  width: 31.8rem;
   object-fit: cover;
 }
 .duration {
@@ -21,7 +23,7 @@
   width: 40px;
   position: absolute;
   right: 5px;
-  top: 14.6rem;
+  top: 14.3rem;
 }
 .video-description-container {
   width: inherit;
@@ -38,25 +40,29 @@
   gap: 3px;
 }
 .title-of-video {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
+  justify-self: flex-start;
   font-weight: 500;
   overflow: hidden;
+  text-align: left;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  max-width: 20rem;
+  -webkit-line-clamp: 1;
+  max-width: 26rem;
   -webkit-box-orient: vertical;
 }
 .Channel-name {
   font-size: 1.4rem;
   align-self: flex-start;
-  font-weight: bold;
+  font-weight: 510;
 }
 .category-level-container {
+  width: 100%;
   align-self: flex-start;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   gap: 2px;
 }
+
 .dot-icon {
   font-size: 2rem;
   margin-right: -8px;
@@ -83,12 +89,12 @@
   .video-card-container {
     margin-bottom: 10px;
     height: 20rem;
-    width: 25rem;
+    width: 28rem;
     justify-self: center;
   }
   .image-of-video {
-    height: 11rem;
-    width: 25rem;
+    height: 12rem;
+    width: 27.7rem;
   }
   .video-description-container {
     gap: 3px;
@@ -112,8 +118,8 @@
     padding: 1px;
     width: 30px;
     position: absolute;
-    right: 6px;
-    top: 8.9rem;
+    right: 7px;
+    top: 9.4rem;
   }
   .watchlater-likedv-container {
     top: 12.7rem;

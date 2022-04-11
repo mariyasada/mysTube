@@ -28,10 +28,9 @@
   color: var(--white-color);
   cursor: pointer;
 }
-.sidebar-item-with-icon.selected {
+.sidebar-item-with-icon-selected {
   background-color: var(--primary-color);
   color: var(--white-color);
-  border-radius: 5px;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .sidebar-item-container {

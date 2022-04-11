@@ -1,28 +1,43 @@
 import React from "react";
-import { useCategory } from "../../Context";
+import { useCategory, useVideos } from "../../Context";
 import "./FilterBar.css";
 
 export const FilterBar = () => {
   const { categories, setCategories } = useCategory();
+  const { state, dispatch } = useVideos();
   return (
     <div className="all-filter-conatiner flex-center">
       <ul className="filter-item-container flex-center">
-        <li className="filter-item">All</li>
+        <li
+          className={`filter-item selected ${
+            state.currentCategory === "All" && "filter-link-active"
+          } `}
+          onClick={() =>
+            dispatch({ type: "SET_CURRENT_CATEGORY", payload: "All" })
+          }
+        >
+          All
+        </li>
 
         {categories.map((category, index) => {
           return (
-            <li className="filter-item" key={index}>
+            <li
+              className={`filter-item selected ${
+                state.currentCategory === category.categoryName &&
+                "filter-link-active"
+              } `}
+              key={index}
+              onClick={() =>
+                dispatch({
+                  type: "SET_CURRENT_CATEGORY",
+                  payload: category.categoryName,
+                })
+              }
+            >
               {category.categoryName}
             </li>
           );
         })}
-        {/* // <li className="filter-item">Resin Art</li>
-        // <li className="filter-item">Alcoholic Ink Art</li>
-        // <li className="filter-item">Mehendi</li>
-        // <li className="filter-item">Acrylic Fluid</li>
-        // <li className="filter-item">Resin Key-Chain</li>
-        // <li className="filter-item">Costers</li>
-        // <li className="filter-item">Arabic Mehendi</li> */}
       </ul>
     </div>
   );

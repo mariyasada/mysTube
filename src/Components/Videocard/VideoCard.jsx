@@ -4,38 +4,49 @@ import { BsDot, BsThreeDotsVertical } from "react-icons/bs";
 import { WatchLaterBox } from "../../Components/index";
 import { useState } from "react";
 import "../../Components/popupbox/watchlater.css";
+import { useNavigate } from "react-router-dom";
 
-export const VideoCard = () => {
+export const VideoCard = ({ video }) => {
+  const {
+    title,
+    channelName,
+    thumbnail,
+    views,
+    date,
+    duration,
+    avatarImage,
+    categoryName,
+  } = video;
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="video-card-container flex-center">
       <div className="image-conatiner">
         <img
           className="image-of-video"
-          src="./assets/costers1.jpg"
-          alt="video-image"
+          src={thumbnail}
+          alt={title}
+          onClick={() => navigate("/singlevideopage")}
         />
       </div>
       <div className="video-description-container flex-center">
         <span className="avatar-image-container">
           <img
-            src="./assets/costers1.jpg"
+            src={avatarImage}
             className="avatar avatar-xsm"
-            alt="avatar-sm-image"
+            alt={channelName}
           />
         </span>
-        <span className="duration">9:01</span>
+        <span className="duration">{duration}</span>
         <div className="video-title-autor-detail-container flex-center">
-          <p className="title-of-video">How to setup for resin Art</p>
-          <p className="Channel-name">resin art</p>
+          <p className="title-of-video">{title}</p>
+          <p className="Channel-name">{channelName}</p>
           <div className="category-level-container flex-center">
-            <p className="category-text">Resin art</p>
-            {/* <p className="level-of-video flex-center"> */}
+            <p className="category-text">{categoryName}</p>
             <BsDot className="dot-icon" />
-            <p className="Video-date">1 April 2019</p>
+            <p className="Video-date">{date}</p>
             <BsDot className="dot-icon" />
-            <p>46k views</p>
-            {/* </p> */}
+            <p>{views}</p>
           </div>
         </div>
         <div className="more-info-dots-container">
