@@ -9,8 +9,8 @@ import { Link, NavLink } from "react-router-dom";
 
 export const SideBar = () => {
   const getActiveStyleLink = ({ isActive }) => ({
-    color: isActive ? "white" : "black",
-    background: isActive ? "#7b19f7" : "#7b89e6",
+    color: isActive ? "white" : "",
+    background: isActive ? "#7b19f7" : "",
   });
   return (
     <div className="sidebar-item-container flex-center">
@@ -24,19 +24,27 @@ export const SideBar = () => {
 
         <NavLink
           to="/videopage"
-          style={getActiveStyleLink}
           className="sidebar-item-with-icon flex-center"
+          style={getActiveStyleLink}
         >
           <MdExplore className="sidebar-icon" />
           <h2 className="sidebar-item-title">Explore</h2>
         </NavLink>
 
-        <NavLink to="/" className="sidebar-item-with-icon flex-center">
+        <NavLink
+          to="/"
+          className="sidebar-item-with-icon flex-center"
+          style={getActiveStyleLink}
+        >
           <MdOutlinePlaylistAdd className="sidebar-icon" />
           <h2 className="sidebar-item-title">PlayList</h2>
         </NavLink>
 
-        <NavLink to="/" className="sidebar-item-with-icon flex-center">
+        <NavLink
+          to="/"
+          className="sidebar-item-with-icon flex-center"
+          style={getActiveStyleLink}
+        >
           <AiTwotoneLike className="sidebar-icon" />
           <h2 className="sidebar-item-title">Liked Video</h2>
         </NavLink>

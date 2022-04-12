@@ -1,6 +1,4 @@
-import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
 import { useCategory } from "../../Context/category-context";
 import { HomePageCard } from "../HomepageCard/Homepagecard";
 

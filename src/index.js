@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import {BrowserRouter} from "react-router-dom";
-import { CategoryProvider } from "./Context";
+import { CategoryProvider, VideoProvider } from "./Context";
+import { CombinedProvider } from "./Context/combinedProvider";
 
 // Call make Server
 makeServer();
@@ -12,9 +13,9 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <CategoryProvider>
-    <App />
-    </CategoryProvider>
+      <CombinedProvider>
+          <App />
+    </CombinedProvider>    
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

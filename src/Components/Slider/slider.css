@@ -1,0 +1,33 @@
+.thumbs-wrapper {
+  display: none;
+}
+.banner-image {
+  height: 450px;
+  width: 100%;
+  margin-top: 8rem;
+}
+
+.carousel.carousel-slider .control-arrow {
+  top: 8.5rem;
+  font-size: 25px;
+  bottom: 0;
+  margin-top: 0;
+  padding: 5px;
+}
+.carousel .control-next.control-arrow::before {
+  right: 0;
+  font-size: 2rem;
+}
+.carousel .control-prev.control-arrow::before {
+  border-right: 8px solid rgb(255, 255, 255);
+}
+.carousel .control-arrow::before,
+.carousel.carousel-slider .control-arrow::before {
+  margin: 20rem;
+  gap: 14rem;
+  display: flex;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  content: "";
+  font-size: larger;
+}

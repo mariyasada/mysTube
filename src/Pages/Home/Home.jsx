@@ -1,16 +1,19 @@
 import React from "react";
-import { HomePageCard, Categories, Footer } from "../../Components";
+import { useNavigate } from "react-router-dom";
+import { Categories, Footer, ImageSlider } from "../../Components";
 import "./Home.css";
 
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="home-content-container flex-center">
       <div className="banner-image-container flex-center">
-        <img
+        {/* <img
           src="./assets/banner.jpg"
           alt="banner-image"
           className="banner-image"
-        />
+        /> */}
+        <ImageSlider />
 
         <div className="quote-container">
           <span className="quote">
@@ -19,7 +22,12 @@ export const Home = () => {
               art with us.
             </em>
             <span className="button-container">
-              <button className="btn btn-primary">Explore Now</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => navigate("/videopage")}
+              >
+                Explore Now
+              </button>
             </span>
           </span>
         </div>

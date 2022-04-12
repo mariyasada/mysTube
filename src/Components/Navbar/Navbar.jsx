@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Navbar/navbar.css";
-import { FiMenu } from "react-icons/fi";
-import { FaUserAlt } from "react-icons/fa";
-import { BsSearch } from "react-icons/bs";
-import { useState } from "react";
-import { GiCancel } from "react-icons/gi";
+import { FiMenu, FaUserAlt, BsSearch, GiCancel } from "../Icons";
 import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useVideos } from "../../Context";
 
 export const NavBar = () => {
+  const { state, dispatch } = useVideos();
   const getActiveLink = ({ isActive }) => ({
     color: isActive ? "red" : "#603d8f",
   });
@@ -42,7 +40,14 @@ export const NavBar = () => {
 
       <div className="Header-input-center flex-center border-round">
         <BsSearch className="search-icon" />
-        <input type="text" className="input-searchbox" placeholder="Search" />
+        <input
+          type="text"
+          className="input-searchbox"
+          placeholder="Search"
+          onChange={(e) =>
+            dispatch({ type: "SEARCH_BY_QUERY", payload: e.target.value })
+          }
+        />
       </div>
 
       <div className="Header-nav-icon-right">

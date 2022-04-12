@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route,Routes} from "react-router-dom";
-import { Home,  LogInPage, SignUpPage, VideoListPage } from "./Pages";
+import { Home,  LogInPage, SignUpPage, SingleVideoPage, VideoListPage } from "./Pages";
 
 export const AppRoutes = () => {
   return (
@@ -10,6 +10,7 @@ export const AppRoutes = () => {
             <Route path="/videopage" element={<VideoListPage/>}/>
            <Route path="/loginpage" element={<LogInPage/>} />
            <Route path="/signup" element={<SignUpPage/>}/>
+           <Route path="/singlevideopage" element={<SingleVideoPage/>}/>
         </Routes>
     
   )
