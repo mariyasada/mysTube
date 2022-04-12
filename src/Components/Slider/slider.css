@@ -5,11 +5,8 @@
   height: 450px;
   width: 100%;
   margin-top: 8rem;
-  background-color: red;
 }
-/* .carousel-conatainer {
-  margin-top: 10px;
-} */
+
 .carousel.carousel-slider .control-arrow {
   top: 8.5rem;
   font-size: 25px;
@@ -21,11 +18,11 @@
   right: 0;
   font-size: 2rem;
 }
-.carousel .control-prev.control-arrow:before {
+.carousel .control-prev.control-arrow::before {
   border-right: 8px solid rgb(255, 255, 255);
 }
-.carousel .control-arrow:before,
-.carousel.carousel-slider .control-arrow:before {
+.carousel .control-arrow::before,
+.carousel.carousel-slider .control-arrow::before {
   margin: 20rem;
   gap: 14rem;
   display: flex;
