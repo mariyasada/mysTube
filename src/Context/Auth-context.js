@@ -27,6 +27,7 @@ const AuthProvider=({children})=>{
 }
 
 const logInHandler = async(logInData)=>{   
+    console.log(logInData);
     const {data,status}=await logInService(logInData);
     if(status===200)
     {
