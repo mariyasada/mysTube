@@ -45,13 +45,22 @@
   cursor: pointer;
   font-weight: bold;
 }
-.btn.login-btn {
+.btn.login-btn,
+.btn.login-btn-outline {
   background-color: var(--primary-dark-color);
-  width: 15rem;
+  width: 29rem;
+  min-width: 25rem;
   margin-top: 2rem;
-  color: var(--white-color);
   font-weight: bold;
   cursor: pointer;
+}
+.btn.btn.login-btn {
+  color: var(--white-color);
+}
+.btn.login-btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-dark-color);
+  color: var(--primary-dark-color);
 }
 .new-user-link-container {
   font-size: 1.7rem;

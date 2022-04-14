@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "../Navbar/navbar.css";
-import { FiMenu, FaUserAlt, BsSearch, GiCancel } from "../Icons";
+import { FiMenu, FaUserAlt, BsSearch, GiCancel, FiLogOut } from "../Icons";
 import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
 import { NavLink } from "react-router-dom";
-import { useVideos } from "../../Context";
+import { useAuth, useVideos } from "../../Context";
 
 export const NavBar = () => {
   const { state, dispatch } = useVideos();
+  const [open, setOpen] = useState(false);
+  const { logOutHandler, user } = useAuth();
+  const { loginStatus } = user;
+
   const getActiveLink = ({ isActive }) => ({
     color: isActive ? "red" : "#603d8f",
   });
-  const [open, setOpen] = useState(false);
 
   return (
     <div className="Header-container flex-center">
@@ -53,8 +56,18 @@ export const NavBar = () => {
       <div className="Header-nav-icon-right">
         <span className="icon-with-title">
           <NavLink to="/loginpage">
-            <FaUserAlt className="header-icon" title="logIn" />
-            <p className="title">LogIn</p>
+            {loginStatus ? (
+              <FiLogOut
+                className="header-icon"
+                title="logOut"
+                onClick={(e) => {
+                  e.preventDefault(), logOutHandler();
+                }}
+              />
+            ) : (
+              <FaUserAlt className="header-icon" title="logIn" />
+            )}
+            <p className="title-login">{loginStatus ? "LogOut" : "LogIn"}</p>
           </NavLink>
         </span>
       </div>

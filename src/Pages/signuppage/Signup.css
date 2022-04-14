@@ -1,5 +1,5 @@
 .show-hige-toggle-icon.password-badge {
-  top: 30rem;
+  top: 39rem;
 }
 .show-hige-toggle-icon.password-badge,
 .show-hige-toggle-icon.confirm-password-badge {
@@ -8,9 +8,13 @@
   font-size: 2rem;
   right: 10rem;
 }
+.error-msg {
+  color: red;
+  font-size: 1.6rem;
+}
 
 .show-hige-toggle-icon.confirm-password-badge {
-  top: 39rem;
+  top: 48.7rem;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .show-hige-toggle-icon.confirm-password-badge,
