@@ -13,7 +13,7 @@ export const SideBar = () => {
     background: isActive ? "#7b19f7" : "",
   });
   return (
-    <div className="sidebar-item-container flex-center">
+    <aside className="sidebar-item-container flex-center">
       <ul>
         <NavLink to="/">
           <li className="sidebar-item-with-icon flex-center ">
@@ -41,7 +41,7 @@ export const SideBar = () => {
         </NavLink>
 
         <NavLink
-          to="/"
+          to="/likevideopage"
           className="sidebar-item-with-icon flex-center"
           style={getActiveStyleLink}
         >
@@ -59,6 +59,6 @@ export const SideBar = () => {
           <h2 className="sidebar-item-title">History</h2>
         </NavLink>
       </ul>
-    </div>
+    </aside>
   );
 };

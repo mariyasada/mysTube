@@ -12,7 +12,7 @@ const initialState={
 const VideoContext =createContext();
 const VideoProvider =({children})=>{
     const [videos,setVideos]=useState([]);
-    const [state,dispatch]=useReducer(filterProductReducer,initialState);
+    const [state,dispatch]=useReducer(filterProductReducer,initialState);   
     useEffect(()=> {
         (async ()=>{
             try{
@@ -20,7 +20,7 @@ const VideoProvider =({children})=>{
                   console.log(data);
                   setVideos(data.videos);
             }
-            catch
+            catch(err)
             {
                 console.error(err,"something wong,can't get videos");
             }

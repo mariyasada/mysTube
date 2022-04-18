@@ -4,10 +4,11 @@ import { BsDot, BsThreeDotsVertical } from "react-icons/bs";
 import { WatchLaterBox } from "../../Components/index";
 import { useState } from "react";
 import "../../Components/popupbox/watchlater.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const VideoCard = ({ video }) => {
   const {
+    _id,
     title,
     channelName,
     thumbnail,
@@ -22,12 +23,14 @@ export const VideoCard = ({ video }) => {
   return (
     <div className="video-card-container flex-center">
       <div className="image-conatiner">
-        <img
-          className="image-of-video"
-          src={thumbnail}
-          alt={title}
-          onClick={() => navigate("/singlevideopage")}
-        />
+        <Link to={`/video/${_id}`}>
+          <img
+            className="image-of-video"
+            src={thumbnail}
+            alt={title}
+            // onClick={() => navigate("/singlevideopage")}
+          />
+        </Link>
       </div>
       <div className="video-description-container flex-center">
         <span className="avatar-image-container">
