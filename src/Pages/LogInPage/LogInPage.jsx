@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../LogInPage/LogIn.css";
-import { FaRegEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import {
+  initialLogInData,
+  guestData,
+} from "../../Context/Constants/AuthConstant";
+import { useAuth } from "../../Context/Auth-context";
 
 export const LogInPage = () => {
+  const [logInData, setLogInData] = useState(initialLogInData);
+
+  const [passVisible, setPassVisible] = useState(true);
+  const { logInHandler } = useAuth();
+
+  const logInChaneHnadler = (e) => {
+    const { name, value } = e.target;
+    setLogInData((prevData) => ({ ...prevData, [name]: value }));
+  };
   return (
     <>
       <div className="login-container flex-center flex-direction-column border-round">
@@ -14,9 +28,11 @@ export const LogInPage = () => {
           </label>
           <input
             type="email"
+            name="email"
             placeholder="abc@gmail.com"
             className="input-textbox"
             id="Email"
+            onChange={logInChaneHnadler}
             required
           />
         </div>
@@ -25,14 +41,20 @@ export const LogInPage = () => {
             Password
           </label>
           <input
-            type="password"
+            type={passVisible ? "password" : "text"}
+            name="password"
             placeholder="*********"
             className="input-textbox"
             id="password"
+            onChange={logInChaneHnadler}
             required
           />
           <span className="show-hide-toggle-icon flex-center">
-            <FaRegEyeSlash />
+            {passVisible ? (
+              <FaEyeSlash onClick={() => setPassVisible(!passVisible)} />
+            ) : (
+              <FaEye onClick={() => setPassVisible(!passVisible)} />
+            )}
           </span>
         </div>
         <div className="remeber-and-forgotpasword-container flex-center">
@@ -45,7 +67,24 @@ export const LogInPage = () => {
           </Link>
         </div>
         <span>
-          <button className="btn login-btn border-round">Login</button>
+          <button
+            className="btn login-btn border-round"
+            onClick={(e) => {
+              e.preventDefault(), logInHandler(logInData);
+            }}
+          >
+            Login
+          </button>
+        </span>
+        <span>
+          <button
+            className="btn login-btn-outline border-round"
+            onClick={(e) => {
+              e.preventDefault(), logInHandler(guestData);
+            }}
+          >
+            Login As Guest
+          </button>
         </span>
         <div className="new-user-link-container flex-center">
           <p>New User ?</p>
