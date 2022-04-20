@@ -1,6 +1,9 @@
 export { FiMenu } from "react-icons/fi";
-export { FaUserAlt ,FaEye,FaEyeSlash} from "react-icons/fa";
-export { BsSearch } from "react-icons/bs";
+export { FaUserAlt ,FaEye,FaEyeSlash,FaBookmark,FaRegBookmark} from "react-icons/fa";
+export { BsSearch,BsDot,BsBookmarkFill,BsTrash,BsThreeDotsVertical } from "react-icons/bs";
 export { GiCancel } from "react-icons/gi";
 export {FiLogOut} from "react-icons/fi";
-export {AiOutlineEye} from "react-icons/ai";
+export {AiOutlineEye,AiOutlineLike,AiFillDislike} from "react-icons/ai";
+export {MdPlaylistAdd} from "react-icons/md";
+export {IoMdShareAlt} from "react-icons/io";
+export {RiPlayList2Line} from "react-icons/ri";

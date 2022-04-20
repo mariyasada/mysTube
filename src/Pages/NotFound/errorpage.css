@@ -1,0 +1,41 @@
+.error-image-container {
+  height: 40rem;
+  width: 70rem;
+  object-fit: contain;
+  margin-top: 10rem;
+}
+.errorpage-message {
+  flex-direction: column;
+  font-size: 2.5rem;
+}
+.error-status {
+  color: var(--dark-blue);
+  font-size: 10rem;
+  width: 100%;
+  margin: 4rem 0 0 3rem;
+}
+.message-for-user {
+  width: 50rem;
+}
+.link-to-homepage {
+  color: var(--dark-cyan);
+  cursor: pointer;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .error-image-container {
+    margin-top: 11rem;
+    width: 30rem;
+  }
+  .message-for-user {
+    width: 30rem;
+  }
+  .error-status {
+    margin-left: -1rem;
+  }
+  .errorpage-message {
+    font-size: 2.2rem;
+  }
+}

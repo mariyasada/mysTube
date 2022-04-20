@@ -1,0 +1,33 @@
+.liked-video-with-sidebar-container {
+  height: auto;
+}
+.liked-videos-container {
+  margin: 10rem 0 2rem 20rem;
+  /* background-color: red; */
+  padding: 5px;
+}
+.videos-container {
+  flex-wrap: wrap;
+  width: 100rem;
+  column-gap: 3rem;
+}
+.liked-video-heading {
+  font-size: 2.3rem;
+  margin-left: 2rem;
+  color: var(--dark-stone);
+  align-self: flex-start;
+}
+@media only screen and (min-width: 320px) and (max-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .videos-container {
+    flex-direction: column;
+    /* background-color: aqua; */
+    width: 40rem;
+    margin-left: -2rem;
+  }
+  .liked-videos-container {
+    margin: 14rem 0;
+  }
+  .liked-video-heading {
+    font-size: 1.8rem;
+  }
+}
