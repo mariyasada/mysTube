@@ -38,15 +38,15 @@ export const videos = [
     thumbnail: "https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/3zN6fHsq9qw-HD_umxfn6nWi.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491204222"
   },
   {
-    _id:"BVa8Wf-OOmk&t=1812s", 
-    title:"#925 Gorgeous Teal And Gold Geode Resin Coasters In My Home Made Silicone Mold",
+    _id:"Vo46j12FISk", 
+    title:"#1334 Amazing Striations In This Beautiful Purple Resin Bowl",
     channelName: "Pouring Your Heart Out",
-    views: "473k views",
-    date: "1 year ago",
+    views: "31k views",
+    date: "5 months ago",
     categoryName: "Resin Art",
-    duration:"40:59",
+    duration:"39:31",
     avatarImage:"https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/you4_Bm58QI9h6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491271828",
-    thumbnail: "https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/BVa8Wf-OOmk-HD_JwyhfuvoX.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491203438"
+    thumbnail: "https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/Vo46j12FISk-HD_OPPxFwonq.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1650378264650"
   },
   {
     _id:"CNdMFXAZK_A", 

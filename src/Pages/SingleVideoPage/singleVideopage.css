@@ -1,11 +1,9 @@
 .single-video-with-sidebar-container {
   height: auto;
-  /* background-color: aqua; */
 }
 .video-iframe-container {
   margin: 10rem 0 2rem 20rem;
   width: 74rem;
-  /* background-color: red; */
   padding: 5px;
 }
 .singlevideopage-title {
@@ -15,7 +13,6 @@
 }
 .owner-category-date-container {
   width: 30rem;
-  /* background-color: blue; */
   margin-left: 1rem;
 }
 .title-and-icons-container {
@@ -40,6 +37,7 @@
   padding: 2rem;
   gap: 2rem;
   margin-top: 2rem;
+  cursor: pointer;
 }
 .single-videopage-videolist {
   padding: 0 1rem;

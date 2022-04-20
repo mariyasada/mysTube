@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route,Routes} from "react-router-dom";
 import { SideBar } from './Components';
-import { Home,  LogInPage, SignUpPage, SingleVideoPage, VideoListPage,MockMan, PageNotFound, LikeVideoPage } from "./Pages";
+import { Home,  LogInPage, SignUpPage, SingleVideoPage, VideoListPage,MockMan, PageNotFound, LikeVideoPage, WatchLaterPage } from "./Pages";
 import { RequiresAuth } from './Router/RequiresAuth';
 
 
@@ -16,6 +16,7 @@ export const AppRoutes = () => {
            <Route path="/signup" element={<SignUpPage/>}/>
            <Route path="/video/:videoId" element={<SingleVideoPage/>}/>
            <Route path="/likevideopage" element={<RequiresAuth children={<LikeVideoPage/>}></RequiresAuth> }/>
+           <Route path="/watchlater" element={<RequiresAuth children={<WatchLaterPage/>}></RequiresAuth>}/>
            <Route path="*" element={<PageNotFound/>}/>
            <Route path="/mockman" element={<MockMan/>}/>
         </Routes>

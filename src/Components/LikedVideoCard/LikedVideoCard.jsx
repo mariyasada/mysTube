@@ -6,30 +6,59 @@ import {
   FaRegBookmark,
   BsThreeDotsVertical,
   AiFillDislike,
+  AiOutlineLike,
+  FaBookmark,
 } from "../Icons";
+import { useLikedAndWatchLaterVideos } from "../../Context";
+import { Link } from "react-router-dom";
 
-export const LikedVideoCard = () => {
+export const LikedVideoCard = ({ video }) => {
+  const {
+    videoState,
+    removeFromLikedVideo,
+    addToWatchLaterVideo,
+    removeFromWatchLater,
+    addToLikeVideo,
+  } = useLikedAndWatchLaterVideos();
+  const { likedList, watchLaterList } = videoState;
   return (
     <div className="liked-video-card-container flex-center">
       <div className="thumbnail-image-conatiner">
-        <img
-          src="https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/fBXir9qu91Q-HD_idD_SbjPob.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649502740302"
-          alt="image"
-          className="thumbanail-image"
-        />
-        <span className="liked-video-duration">9:00</span>
+        <Link to={`/video/${video._id}`}>
+          <img src={video.thumbnail} alt="image" className="thumbanail-image" />
+        </Link>
+        <span className="liked-video-duration">{video.duration}</span>
       </div>
       <div className="liked-video-description-container flex-center flex-direction-column">
-        <p className="liked-video-title">
-          How to make Resin Photo Frame ✨| step-by-step | tutorial | DIY
-          Anniversary Gift | Aara Vlogs
-        </p>
-        <p className="liked-video-channelname">Aesthetic Hues</p>
+        <p className="liked-video-title">{video.title}</p>
+        <p className="liked-video-channelname">{video.channelName}</p>
         <div className="liked-video-icons-container flex-center">
-          <AiFillDislike className="liked-video-icons" />
+          {likedList.some((item) => item._id === video._id) ? (
+            <AiFillDislike
+              className="liked-video-icons"
+              title="Dislike"
+              onClick={() => removeFromLikedVideo(video)}
+            />
+          ) : (
+            <AiOutlineLike
+              className="liked-video-icons"
+              title="like"
+              onClick={() => addToLikeVideo(video)}
+            />
+          )}
           <RiPlayList2Line className="liked-video-icons" />
-          <FaRegBookmark className="liked-video-icons" />
-          {/* <BsThreeDotsVertical className="liked-video-icons" /> */}
+
+          {watchLaterList.some((item) => item._id === video._id) ? (
+            <FaBookmark
+              className="liked-video-icons"
+              onClick={() => removeFromWatchLater(video)}
+            />
+          ) : (
+            <FaRegBookmark
+              className="liked-video-icons"
+              onClick={() => addToWatchLaterVideo(video)}
+            />
+          )}
         </div>
       </div>
     </div>

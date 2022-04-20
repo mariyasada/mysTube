@@ -6,19 +6,28 @@ import {
   FaBookmark,
   BsDot,
   IoMdShareAlt,
+  AiFillDislike,
   MdPlaylistAdd,
+  FaRegBookmark,
 } from "../../Components/Icons";
-import { useVideos } from "../../Context";
+import { useLikedAndWatchLaterVideos, useVideos } from "../../Context";
 import { useParams } from "react-router-dom";
 
 export const SingleVideoPage = () => {
   const { videos } = useVideos();
   const { videoId } = useParams();
+  const {
+    addToLikeVideo,
+    videoState,
+    removeFromLikedVideo,
+    addToWatchLaterVideo,
+    removeFromWatchLater,
+  } = useLikedAndWatchLaterVideos();
+  const { likedList, watchLaterList } = videoState;
 
   let singlevideo = videos.find((video) => video._id === videoId);
   const { title, channelName, categoryName, avatarImage, date, views } =
     singlevideo;
-  console.log(singlevideo);
   return (
     <div className="single-video-with-sidebar-container flex-center">
       <SideBar />
@@ -54,8 +63,33 @@ export const SingleVideoPage = () => {
             </div>
           </div>
           <div className="video-iframe-icon-container flex-center">
-            <AiOutlineLike className="video-iframe-icon" title="like" />
-            <FaBookmark className="video-iframe-icon" title="watch later" />
+            {likedList.some((item) => item._id === singlevideo._id) ? (
+              <AiFillDislike
+                className="video-iframe-icon"
+                title="like"
+                onClick={() => removeFromLikedVideo(singlevideo)}
+              />
+            ) : (
+              <AiOutlineLike
+                className="video-iframe-icon"
+                title="like"
+                onClick={() => addToLikeVideo(singlevideo)}
+              />
+            )}
+
+            {watchLaterList.some((item) => item._id === singlevideo._id) ? (
+              <FaBookmark
+                className="video-iframe-icon"
+                title="watch later"
+                onClick={() => removeFromWatchLater(singlevideo)}
+              />
+            ) : (
+              <FaRegBookmark
+                className="video-iframe-icon"
+                title="watch later"
+                onClick={() => addToWatchLaterVideo(singlevideo)}
+              />
+            )}
             <MdPlaylistAdd
               className="video-iframe-icon"
               title="save o playlist"

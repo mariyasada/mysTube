@@ -1,14 +1,16 @@
 import React from "react";
-import {VideoProvider,CategoryProvider,AuthProvider} from "../Context/index";
+import {VideoProvider,CategoryProvider,AuthProvider,LikedandWatchLaterVideoProvider} from "../Context/index"
 
 
 const CombinedProvider =({children})=>{
     return(
     <VideoProvider>
         <AuthProvider>
-        <CategoryProvider>
-           {children}
-        </CategoryProvider>
+            <LikedandWatchLaterVideoProvider>
+                <CategoryProvider>
+                {children}
+                </CategoryProvider>
+            </LikedandWatchLaterVideoProvider>
         </AuthProvider>
     </VideoProvider>)
 }
