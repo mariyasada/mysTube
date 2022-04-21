@@ -9,4 +9,5 @@ export {VideoCard} from "../Components/Videocard/VideoCard"
 export {FilterBar} from "../Components/FilterBar/FilterBar"
 export {WatchLaterBox } from "./popupbox/WatchLater";
 export {ImageSlider} from "./Slider/ImageSlider";
-export {LikedVideoCard} from "./LikedVideoCard/LikedVideoCard"
+export {LikedVideoCard} from "./LikedVideoCard/LikedVideoCard";
+export {HistoryCard} from "./HistoryCard/HistoryCard";

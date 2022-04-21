@@ -7,3 +7,4 @@ export {MockMan} from "./MockMan/MockMan";
 export {PageNotFound} from "./NotFound/404error"
 export {LikeVideoPage} from "./LikedVideoPage/LikeVideoPage"
 export {WatchLaterPage} from "./WatchLaterpage/WatchLaterPage";
+export {HistoryPage} from "./HistoryPage/HistoryPage";

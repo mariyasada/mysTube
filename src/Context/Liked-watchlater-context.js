@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer,useEffect} from "react";
-import { getLikedVideo,addtoLikePageService,removeFromLikeVideoSevice,getWatchLaterVideos,addTowatchLaterVideoService,removeFromWatchLaterService } from "../Services";
+import { getLikedVideo,addtoLikePageService,removeFromLikeVideoSevice,getWatchLaterVideos,addTowatchLaterVideoService,removeFromWatchLaterService,getHistoryData,addVideoToHistoryService,removeVideoFromHistoryService,removeAllHistoryService } from "../Services";
 import { useAuth } from "./Auth-context";
 import { likedvideosReducer } from "./Reducer/likedvideosReducer";
 import toast from "react-hot-toast";
@@ -9,7 +9,8 @@ const LikedandwatchLaterVideoContext=createContext();
 
 const initialState={
     likedList:[],
-    watchLaterList:[]
+    watchLaterList:[],
+    historyList:[]
 }
 
 const LikedandWatchLaterVideoProvider=({children})=>{
@@ -18,16 +19,17 @@ const LikedandWatchLaterVideoProvider=({children})=>{
     
 
     useEffect(()=>{
-        {
+        
             if(user.loginStatus)
             {
              (async()=>{
-                  const data= await getLikedVideo(user);
-                  const wdata =await getWatchLaterVideos(user);
-                  if(data && wdata !==undefined)
+                
+                  const[data,wData,hData]= await Promise.all([getLikedVideo(user), getWatchLaterVideos(user),getHistoryData(user)]);                
+                  if((data && wData && hData) !==undefined)
                   {
                     videoDispatch({type:"LOAD_LIKED_VIDEOS",payload:data.likes})
-                    videoDispatch({type:"LOAD_WATCHLATER_VIDEOS",payload:wdata.watchlater})
+                    videoDispatch({type:"LOAD_WATCHLATER_VIDEOS",payload:wData.watchlater})
+                    videoDispatch({type:"LOAD_HISTORY",payload:hData.history})
                   }
                   else{
                        throw new Error("could not find data")
@@ -35,9 +37,7 @@ const LikedandWatchLaterVideoProvider=({children})=>{
              })();
             
             }
-        }
-    }
-    ,[user]);
+        },[user]);
 
 // ADD TO LIKED VIDEO
     const addToLikeVideo=async(video)=>{
@@ -65,6 +65,7 @@ const removeFromLikedVideo=async(video)=>{
             throw new Error("could not complete the request");
         }  
 }
+// ADD TO WATCH LATER VIDEO
 const addToWatchLaterVideo =async(video)=>{
     const {data,status}= await addTowatchLaterVideoService(video,user);
     if(status===201)
@@ -77,7 +78,7 @@ const addToWatchLaterVideo =async(video)=>{
     }
     
 }
-
+// REMOVE FROM WATCHLATER VIDEO
 const removeFromWatchLater=async(video)=>{
     const {data,status}=await removeFromWatchLaterService(video,user);
     if(status===200)
@@ -88,10 +89,32 @@ const removeFromWatchLater=async(video)=>{
     else{
         throw new Error("could not complete the request");
     }
+}
+// ADD VIDEO TO HISTORYPAGE
+const addVideoToHistory =async(video)=>{    
+    const {data}=await addVideoToHistoryService(video,user);
+    videoDispatch({type:"ADD_TO_HISTORY",payload:data.history})
+}
+//  REMOVE VIDEO FROM HISTORYPAGE
+const removeVideoFromHistory =async(video)=>{
+    const {data}= await removeVideoFromHistoryService(video,user);
+    videoDispatch({type:"REMOVE_FROM_HISTORY",payload:data.history})
+    toast("Remove video from history", {icon:"✔️"});
+}
+const removeAllHistory=async()=>{
+    const {data,status}=await removeAllHistoryService(user);
+    if(status===200)
+    {
+      videoDispatch({type:"REMOVE_ALL_HISTORY",payload:data.history})
+      toast("cleared all history",{icon:"✔️"})
+    }
+    else{
+        throw new Error("could not complete the request");
+    }
     
 }
 
-    return <LikedandwatchLaterVideoContext.Provider value={{videoState,videoDispatch,addToLikeVideo,removeFromLikedVideo,addToWatchLaterVideo,removeFromWatchLater}}>{children}</LikedandwatchLaterVideoContext.Provider>
+    return <LikedandwatchLaterVideoContext.Provider value={{videoState,videoDispatch,addToLikeVideo,removeFromLikedVideo,addToWatchLaterVideo,removeFromWatchLater,addVideoToHistory,removeVideoFromHistory,removeAllHistory}}>{children}</LikedandwatchLaterVideoContext.Provider>
 }
 
 const useLikedAndWatchLaterVideos=()=>useContext(LikedandwatchLaterVideoContext);
