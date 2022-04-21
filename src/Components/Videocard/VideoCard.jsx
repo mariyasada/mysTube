@@ -24,12 +24,7 @@ export const VideoCard = ({ video }) => {
     <div className="video-card-container flex-center">
       <div className="image-conatiner">
         <Link to={`/video/${_id}`}>
-          <img
-            className="image-of-video"
-            src={thumbnail}
-            alt={title}
-            // onClick={() => navigate("/singlevideopage")}
-          />
+          <img className="image-of-video" src={thumbnail} alt={title} />
         </Link>
       </div>
       <div className="video-description-container flex-center">
@@ -60,7 +55,10 @@ export const VideoCard = ({ video }) => {
         </div>
       </div>
       {isOpen && (
-        <WatchLaterBox className="watchlater-likedv-container flex-center flex-direaction-column border-round" />
+        <WatchLaterBox
+          className="watchlater-likedv-container flex-center flex-direaction-column border-round"
+          video={video}
+        />
       )}
     </div>
   );

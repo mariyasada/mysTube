@@ -49,7 +49,11 @@ export const SideBar = () => {
           <h2 className="sidebar-item-title">Liked Video</h2>
         </NavLink>
 
-        <NavLink to="/" className="sidebar-item-with-icon flex-center">
+        <NavLink
+          to="/watchlater"
+          className="sidebar-item-with-icon flex-center"
+          style={getActiveStyleLink}
+        >
           <FaBookmark className="sidebar-icon" />
           <h2 className="sidebar-item-title">Watch Later</h2>
         </NavLink>

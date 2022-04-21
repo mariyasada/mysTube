@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 
 const AuthContext= createContext();
-const token=localStorage.getItem("auth_token");
+const token=JSON.parse(localStorage.getItem("auth_token"));
 
 const inititalAuthStateValue={
     loginStatus:token?true:false,
@@ -33,7 +33,7 @@ const logInHandler = async(logInData)=>{
     {
         localStorage.setItem("auth_token", JSON.stringify(data.encodedToken));
         setUser({loginStatus:true,
-                authenticationToken:JSON.stringify(data.encodedToken)})   
+                authenticationToken:data.encodedToken})   
          toast("Successfully loggedIn", { icon:  "✔️"  });
     
         navigateTo("/videopage");
