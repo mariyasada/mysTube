@@ -43,6 +43,10 @@ li {
 .btn:hover {
   border: none;
 }
+.msg-for-user {
+  margin: 10rem 20rem;
+  color: var(--primary-dark-color);
+}
 
 :root {
   --primary-color: #7b19f7;

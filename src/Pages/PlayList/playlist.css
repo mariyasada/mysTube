@@ -29,6 +29,7 @@
 .trash-icon {
   cursor: pointer;
 }
+
 @media only screen and (min-width: 320px) and (max-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .videos-of-playlist-container {
     flex-direction: column;
