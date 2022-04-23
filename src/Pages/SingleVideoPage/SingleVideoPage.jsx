@@ -12,7 +12,6 @@ import {
 } from "../../Components/Icons";
 import { useLikedAndWatchLaterVideos, useVideos } from "../../Context";
 import { useParams } from "react-router-dom";
-import Iframe from "react-iframe";
 
 export const SingleVideoPage = () => {
   const { videos } = useVideos();
