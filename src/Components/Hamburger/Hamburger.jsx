@@ -15,7 +15,7 @@ export const Hamburger = () => {
         <Link to="/videopage" className="hamburger-menu-item">
           Explore
         </Link>
-        <Link to="/" className="hamburger-menu-item">
+        <Link to="/playlist" className="hamburger-menu-item">
           PlayList
         </Link>
         <Link to="/likevideopage" className="hamburger-menu-item">

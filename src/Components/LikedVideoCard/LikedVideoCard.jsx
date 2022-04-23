@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "../LikedVideoCard/Likevideocard.css";
 import {
-  BsTrash,
   RiPlayList2Line,
   FaRegBookmark,
-  BsThreeDotsVertical,
   AiFillDislike,
   AiOutlineLike,
   FaBookmark,
+  CgPlayListRemove,
 } from "../Icons";
-import { useLikedAndWatchLaterVideos } from "../../Context";
+import { useLikedAndWatchLaterVideos, usePlayList } from "../../Context";
 import { Link, useLocation } from "react-router-dom";
+import { Modal } from "../playListModal/Modal";
 
-export const LikedVideoCard = ({ video }) => {
+export const LikedVideoCard = ({ video, playlistId }) => {
   const {
     videoState,
     removeFromLikedVideo,
@@ -22,6 +22,10 @@ export const LikedVideoCard = ({ video }) => {
   } = useLikedAndWatchLaterVideos();
   const { likedList, watchLaterList } = videoState;
   const pathname = useLocation();
+  const [isShowModal, setShowModal] = useState(false);
+  const { playlistState, deleteVideoFromPlayList } = usePlayList();
+  const { playList } = playlistState;
+  console.log(playList, "liked video card");
 
   return (
     <div className="liked-video-card-container flex-center">
@@ -48,8 +52,19 @@ export const LikedVideoCard = ({ video }) => {
               onClick={() => addToLikeVideo(video)}
             />
           )}
-          <RiPlayList2Line className="liked-video-icons" />
-
+          {playList.map((playlist) =>
+            playlist.videos.some((item) => item._id === video._id)
+          ) ? (
+            <CgPlayListRemove
+              className="liked-video-icons"
+              onClick={() => deleteVideoFromPlayList(video, playlistId)}
+            />
+          ) : (
+            <RiPlayList2Line
+              className="liked-video-icons"
+              onClick={() => setShowModal(true)}
+            />
+          )}
           {watchLaterList.some((item) => item._id === video._id) ? (
             <FaBookmark
               className="liked-video-icons"
@@ -62,6 +77,12 @@ export const LikedVideoCard = ({ video }) => {
             />
           )}
         </div>
+        {isShowModal && (
+          <Modal
+            className="playlist-modal-container"
+            setShowModal={setShowModal}
+          />
+        )}
       </div>
     </div>
   );

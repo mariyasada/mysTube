@@ -27,14 +27,14 @@ export const NavBar = () => {
           )}
         </div>
         <NavLink to="/">
-          <img className="image-logo" src="./assets/logo.png" alt="mt-logo" />
+          <img className="image-logo" src="./assets/logo1.png" alt="mt-logo" />
         </NavLink>
         <div className="flex-center nav-items-container">
           <ul className="nav-items">
             <NavLink to="/videopage" style={getActiveLink} className="nav-item">
               Explore
             </NavLink>
-            <NavLink to="/" style={getActiveLink} className="nav-item">
+            <NavLink to="/playlist" style={getActiveLink} className="nav-item">
               PlayList
             </NavLink>
           </ul>

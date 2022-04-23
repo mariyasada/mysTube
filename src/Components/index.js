@@ -11,3 +11,4 @@ export {WatchLaterBox } from "./popupbox/WatchLater";
 export {ImageSlider} from "./Slider/ImageSlider";
 export {LikedVideoCard} from "./LikedVideoCard/LikedVideoCard";
 export {HistoryCard} from "./HistoryCard/HistoryCard";
+export {Modal} from "./playListModal/Modal";
