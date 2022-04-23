@@ -3,7 +3,7 @@ import { usePlayList } from "../../Context";
 import { AiOutlinePlusSquare, FaTimes, AiOutlineCheckCircle } from "../Icons";
 import "../playListModal/modal.css";
 
-export const Modal = ({ setShowModal, video }) => {
+export const Modal = ({ setShowModal, video, setIsOpen }) => {
   const [playlistData, setPlayListData] = useState([]);
   const {
     createPlayList,
@@ -33,9 +33,11 @@ export const Modal = ({ setShowModal, video }) => {
                     if (e.target.checked) {
                       addVideoToPlayList(video, playlist._id, playlist.title);
                       setShowModal(false);
+                      setIsOpen(false);
                     } else {
                       deleteVideoFromPlayList(video, playlist._id);
                       setShowModal(false);
+                      setIsOpen(false);
                     }
                   }}
                 />

@@ -59,6 +59,7 @@ export const VideoCard = ({ video }) => {
         <WatchLaterBox
           className="watchlater-likedv-container flex-center flex-direaction-column border-round"
           video={video}
+          setIsOpen={setIsOpen}
         />
       )}
     </div>

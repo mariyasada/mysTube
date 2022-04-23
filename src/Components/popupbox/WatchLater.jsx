@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "../playListModal/Modal";
 import "../playListModal/modal.css";
 
-export const WatchLaterBox = ({ video }) => {
+export const WatchLaterBox = ({ video, setIsOpen }) => {
   const {
     addToLikeVideo,
     videoState,
@@ -40,7 +40,9 @@ export const WatchLaterBox = ({ video }) => {
         {watchLaterList.some((item) => item._id === video._id) ? (
           <li
             className="icon-title-container flex-center"
-            onClick={() => removeFromWatchLater(video)}
+            onClick={() => {
+              removeFromWatchLater(video), setIsOpen(false);
+            }}
           >
             <MdOutlineWatchLater className="icon-md" />
             <p className="item-title">Remove from Watch Later</p>
@@ -51,6 +53,7 @@ export const WatchLaterBox = ({ video }) => {
             onClick={() => {
               if (loginStatus) {
                 addToWatchLaterVideo(video);
+                setIsOpen(false);
               } else {
                 toast("please login to continue", { icon: "✔️" });
                 navigate("/loginpage");
@@ -64,7 +67,9 @@ export const WatchLaterBox = ({ video }) => {
         {likedList.some((item) => item._id === video._id) ? (
           <li
             className="icon-title-container flex-center"
-            onClick={() => removeFromLikedVideo(video)}
+            onClick={() => {
+              removeFromLikedVideo(video), setIsOpen(false);
+            }}
           >
             <AiFillDislike className="icon-md" />
             <p className="item-title">Remove from Liked Videos</p>
@@ -75,6 +80,7 @@ export const WatchLaterBox = ({ video }) => {
             onClick={() => {
               if (loginStatus) {
                 addToLikeVideo(video);
+                setIsOpen(false);
               } else {
                 navigate("/loginpage"),
                   toast("please login to continue", { icon: "✔️" });
@@ -105,6 +111,7 @@ export const WatchLaterBox = ({ video }) => {
             className="playlist-modal-container"
             setShowModal={setShowModal}
             video={video}
+            setIsOpen={setIsOpen}
           />
         )}
       </ul>
