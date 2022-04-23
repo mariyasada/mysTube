@@ -12,6 +12,7 @@ import {
 } from "../../Components/Icons";
 import { useLikedAndWatchLaterVideos, useVideos } from "../../Context";
 import { useParams } from "react-router-dom";
+import Iframe from "react-iframe";
 
 export const SingleVideoPage = () => {
   const { videos } = useVideos();
@@ -22,6 +23,7 @@ export const SingleVideoPage = () => {
     removeFromLikedVideo,
     addToWatchLaterVideo,
     removeFromWatchLater,
+    addVideoToHistory,
   } = useLikedAndWatchLaterVideos();
   const { likedList, watchLaterList } = videoState;
 
@@ -33,14 +35,16 @@ export const SingleVideoPage = () => {
       <SideBar />
       <div className="video-iframe-container">
         <iframe
+          onLoad={() => addVideoToHistory(singlevideo)}
           width="727"
           height="409"
-          src={`https://www.youtube.com/embed/${singlevideo._id}/autoplay=1`}
+          src={`https://www.youtube.com/embed/${singlevideo._id}`}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
+
         <p className="singlevideopage-title">{title}</p>
         <div className="title-and-icons-container flex-center">
           <div className="owner-category-date-container flex-center flex-direction-column">

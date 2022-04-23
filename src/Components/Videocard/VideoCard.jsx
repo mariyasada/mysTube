@@ -20,6 +20,7 @@ export const VideoCard = ({ video }) => {
   } = video;
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
   return (
     <div className="video-card-container flex-center">
       <div className="image-conatiner">

@@ -4,6 +4,7 @@ export const addtoLikePageService=async(video,user)=>{
         const {data,status}=await axios.post("/api/user/likes",{video},{
             headers:{authorization: user.authenticationToken}
         })    
+        console.log(data);
     return {data,status};
     }
     catch{

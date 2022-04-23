@@ -1,0 +1,71 @@
+.history-video-with-sidebar-container {
+  height: auto;
+}
+.history-videos-container {
+  margin: 10rem 0 2rem 20rem;
+  padding: 5px;
+}
+.heading-and-btn-conatiner {
+  width: 100rem;
+  padding: 5px;
+  justify-content: space-between;
+}
+.videos-of-history-container {
+  flex-wrap: wrap;
+  width: 100rem;
+  column-gap: 3rem;
+}
+.history-video-heading {
+  font-size: 2.3rem;
+  margin-left: 2rem;
+  color: var(--dark-stone);
+  align-self: flex-start;
+  justify-self: center;
+  width: max-content;
+}
+.btn-history {
+  max-width: 15rem;
+  width: 12rem;
+  margin-right: 1rem;
+  color: var(--white-color);
+  font-weight: bolder;
+  background-color: var(--primary-color);
+  outline: none;
+  border: none;
+  justify-self: center;
+  cursor: pointer;
+}
+
+.history-video-icons-container {
+  margin: 0.4rem 1rem -4rem 6rem;
+  width: 10rem;
+  justify-content: flex-end;
+}
+.history-icon {
+  cursor: pointer;
+}
+@media only screen and (min-width: 320px) and (max-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .videos-of-history-container {
+    flex-direction: column;
+    width: 40rem;
+    margin-left: -2rem;
+  }
+  .history-videos-container {
+    margin: 14rem 0;
+  }
+  .history-video-heading {
+    font-size: 1.8rem;
+    align-self: center;
+  }
+  .heading-and-btn-conatiner {
+    width: 40rem;
+    margin-left: -2rem;
+    align-items: center;
+  }
+  .history-video-icons-container {
+    width: 7rem;
+  }
+  .liked-video-icons {
+    font-size: 1.5rem;
+  }
+}

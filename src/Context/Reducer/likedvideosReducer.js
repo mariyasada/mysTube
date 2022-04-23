@@ -16,7 +16,18 @@ export const likedvideosReducer = (state,action) => {
            return {...state,watchLaterList:[...action.payload]}
          
        case "REMOVE_FROM_WATCH_LATER":
-           return {...state,watchLaterList:[...action.payload]}         
+           return {...state,watchLaterList:[...action.payload]}    
+           
+       case "ADD_TO_HISTORY":
+           return {...state,historyList:[...action.payload]} 
+
+        case "REMOVE_FROM_HISTORY":
+            return {...state,historyList:[...action.payload]} 
+          
+        case "REMOVE_ALL_HISTORY":  
+           return { ...state, historyList: [...action.payload] }   
+
+
 
    
        default:

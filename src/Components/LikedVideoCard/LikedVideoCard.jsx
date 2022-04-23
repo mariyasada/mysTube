@@ -10,7 +10,7 @@ import {
   FaBookmark,
 } from "../Icons";
 import { useLikedAndWatchLaterVideos } from "../../Context";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const LikedVideoCard = ({ video }) => {
   const {
@@ -21,6 +21,8 @@ export const LikedVideoCard = ({ video }) => {
     addToLikeVideo,
   } = useLikedAndWatchLaterVideos();
   const { likedList, watchLaterList } = videoState;
+  const pathname = useLocation();
+
   return (
     <div className="liked-video-card-container flex-center">
       <div className="thumbnail-image-conatiner">
