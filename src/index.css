@@ -10,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Roboto Condensed", sans-serif;
+  /* background-color: #0e0d0d; */
 }
 .flex-center {
   display: flex;
@@ -42,10 +43,15 @@ li {
 .btn:hover {
   border: none;
 }
+.msg-for-user {
+  margin: 10rem 20rem;
+  color: var(--primary-dark-color);
+}
 
 :root {
   --primary-color: #7b19f7;
   --primary-color-light: #b481f8;
+  --modal-background: #b43bec;
   --blue-saphhire: #0b4f6c;
   --purple-color: #7b89e6;
   --primary-medium-color: #603d8f;
@@ -54,6 +60,7 @@ li {
   --primary-extra-light: rgb(158, 115, 211);
   --olive-color: #949100;
   --secondary-color: #b4b23b;
+  --secondary-light-color: #d8d337;
   --light-olive: #e0dc22;
   --gray-color: rgb(211, 209, 209);
   --primary-black: #141414;

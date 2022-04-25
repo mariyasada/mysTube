@@ -32,7 +32,7 @@ export const SideBar = () => {
         </NavLink>
 
         <NavLink
-          to="/"
+          to="/playlist"
           className="sidebar-item-with-icon flex-center"
           style={getActiveStyleLink}
         >

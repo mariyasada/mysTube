@@ -38,6 +38,7 @@
     height: auto;
     width: 100%;
     padding: 7px;
+    background-color: var(--white-color);
   }
 
   .filter-item {

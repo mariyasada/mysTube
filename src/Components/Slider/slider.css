@@ -2,9 +2,10 @@
   display: none;
 }
 .banner-image {
-  height: 450px;
+  height: 100vh;
   width: 100%;
   margin-top: 8rem;
+  object-fit: cover;
 }
 
 .carousel.carousel-slider .control-arrow {

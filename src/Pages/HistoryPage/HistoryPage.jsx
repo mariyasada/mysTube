@@ -22,14 +22,13 @@ export const HistoryPage = () => {
           </span>
         </div>
         <div className="videos-of-history-container flex-center">
-          {historyList.map((video) => {
-            return <HistoryCard key={video._id} video={video} />;
-          })}
-          {/* <HistoryCard />
-          <HistoryCard />
-          <HistoryCard />
-          <HistoryCard />
-          <HistoryCard /> */}
+          {historyList.length === 0 ? (
+            <h1 className="msg-for-user">You have not watched any video.</h1>
+          ) : (
+            historyList.map((video) => {
+              return <HistoryCard key={video._id} video={video} />;
+            })
+          )}
         </div>
       </div>
     </div>
