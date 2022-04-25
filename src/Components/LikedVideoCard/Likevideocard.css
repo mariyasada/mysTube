@@ -1,4 +1,4 @@
-.liked-video-card-container {
+.horizontal-card {
   height: 15rem;
   width: 40rem;
   margin: 2rem;
@@ -97,5 +97,11 @@
   }
   .liked-video-icons {
     font-size: 1.5rem;
+  }
+  .msg-for-user {
+    width: 23rem;
+    margin-left: 12rem;
+    background-color: red;
+    font-size: 1.4rem;
   }
 }

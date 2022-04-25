@@ -31,9 +31,26 @@ export const WatchLaterBox = ({ video, setIsOpen }) => {
   const { playlistState } = usePlayList();
   const { likedList, watchLaterList } = videoState;
   const { playList } = playlistState;
-  console.log(playlistState, "watch");
   const navigate = useNavigate();
   const [isShowModal, setShowModal] = useState(false);
+
+  const checkStatusForLikedVideo = () => {
+    if (loginStatus) {
+      addToLikeVideo(video);
+      setIsOpen(false);
+    } else {
+      navigate("/loginpage"), toast("please login to continue", { icon: "✔️" });
+    }
+  };
+  const checkStatusForWatchLaterVideo = () => {
+    if (loginStatus) {
+      addToWatchLaterVideo(video);
+      setIsOpen(false);
+    } else {
+      toast("please login to continue", { icon: "✔️" });
+      navigate("/loginpage");
+    }
+  };
   return (
     <div className="watchlater-likedv-container flex-center flex-direaction-column">
       <ul className="item-container">
@@ -50,15 +67,7 @@ export const WatchLaterBox = ({ video, setIsOpen }) => {
         ) : (
           <li
             className="icon-title-container flex-center"
-            onClick={() => {
-              if (loginStatus) {
-                addToWatchLaterVideo(video);
-                setIsOpen(false);
-              } else {
-                toast("please login to continue", { icon: "✔️" });
-                navigate("/loginpage");
-              }
-            }}
+            onClick={checkStatusForWatchLaterVideo}
           >
             <MdOutlineWatchLater className="icon-md" />
             <p className="item-title"> Watch Later</p>
@@ -77,15 +86,7 @@ export const WatchLaterBox = ({ video, setIsOpen }) => {
         ) : (
           <li
             className="icon-title-container flex-center"
-            onClick={() => {
-              if (loginStatus) {
-                addToLikeVideo(video);
-                setIsOpen(false);
-              } else {
-                navigate("/loginpage"),
-                  toast("please login to continue", { icon: "✔️" });
-              }
-            }}
+            onClick={checkStatusForLikedVideo}
           >
             <AiFillLike className="icon-md" />
             <p className="item-title">Liked Videos</p>
@@ -103,7 +104,7 @@ export const WatchLaterBox = ({ video, setIsOpen }) => {
           }}
         >
           <RiPlayList2Line className="icon-md" />
-          <p className="item-title"> PlayList</p>
+          <p className="item-title">Create PlayList</p>
         </li>
 
         {isShowModal && (

@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import "../Navbar/navbar.css";
-import { FiMenu, FaUserAlt, BsSearch, GiCancel, FiLogOut } from "../Icons";
+import {
+  FiMenu,
+  FaUserAlt,
+  BsSearch,
+  GiCancel,
+  FiLogOut,
+  FaRegSun,
+  FaMoon,
+} from "../Icons";
 import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
 import { NavLink } from "react-router-dom";
@@ -17,7 +25,7 @@ export const NavBar = () => {
   });
 
   return (
-    <div className="Header-container flex-center">
+    <div className="Header-container  flex-center">
       <div className="header-left-logo flex-center">
         <div className="menu-icon">
           {open ? (
@@ -53,7 +61,7 @@ export const NavBar = () => {
         />
       </div>
 
-      <div className="Header-nav-icon-right">
+      <div className="Header-nav-icon-right flex-center">
         <span className="icon-with-title">
           <NavLink to="/loginpage">
             {loginStatus ? (

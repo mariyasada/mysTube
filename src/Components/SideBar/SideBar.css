@@ -5,9 +5,9 @@
   position: fixed;
   top: 0;
   background-color: white;
+  /* background: var(--background-purple); */
   border-right: 1px solid var(--light-stone);
   margin-top: 7.8rem;
-  color: var(--dark-stone);
   cursor: pointer;
 }
 .sidebar-item-with-icon {

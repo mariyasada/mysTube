@@ -6,8 +6,8 @@ export const createPlayListService=async(user,title)=>{
             headers:{
              authorization: user.authenticationToken
             }
-        })    
-        console.log(data);        
+        })   
+               
             return data;
     }
     catch(err)

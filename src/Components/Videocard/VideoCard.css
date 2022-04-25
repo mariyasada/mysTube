@@ -3,7 +3,9 @@
   width: 32rem;
   flex-direction: column;
   margin: 2rem;
-  box-shadow: rgba(82, 80, 80, 0.24) 0px 3px 8px;
+  /* box-shadow: rgba(82, 80, 80, 0.24) 0px 3px 8px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   cursor: pointer;
   position: relative;
   border: 1px solid var(--dark-stone);
@@ -94,7 +96,7 @@
   }
   .image-of-video {
     height: 12rem;
-    width: 27.7rem;
+    width: 27.85rem;
   }
   .video-description-container {
     gap: 3px;

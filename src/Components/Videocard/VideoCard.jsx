@@ -5,6 +5,7 @@ import { WatchLaterBox } from "../../Components/index";
 import { useState } from "react";
 import "../../Components/popupbox/watchlater.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context";
 
 export const VideoCard = ({ video }) => {
   const {
@@ -20,11 +21,14 @@ export const VideoCard = ({ video }) => {
   } = video;
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const {
+    user: { loginStatus },
+  } = useAuth();
 
   return (
     <div className="video-card-container flex-center">
       <div className="image-conatiner">
-        <Link to={`/video/${_id}`}>
+        <Link to={loginStatus ? `/video/${_id}` : `/loginpage`}>
           <img className="image-of-video" src={thumbnail} alt={title} />
         </Link>
       </div>

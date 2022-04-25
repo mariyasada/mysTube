@@ -1,10 +1,10 @@
 export { FiMenu } from "react-icons/fi";
-export { FaUserAlt ,FaEye,FaEyeSlash,FaBookmark,FaRegBookmark,FaTimes,FaTrash} from "react-icons/fa";
+export { FaHome, FaUserAlt ,FaEye,FaEyeSlash,FaBookmark,FaRegBookmark,FaTimes,FaTrash,FaRegSun,FaMoon} from "react-icons/fa";
 export { BsSearch,BsDot,BsBookmarkFill,BsTrash,BsThreeDotsVertical } from "react-icons/bs";
 export { GiCancel } from "react-icons/gi";
 export {FiLogOut} from "react-icons/fi";
 export {AiOutlineEye,AiOutlineLike,AiFillDislike,AiFillLike,AiOutlinePlusSquare,AiOutlineCheckCircle} from "react-icons/ai";
-export {MdPlaylistAdd,MdOutlineWatchLater} from "react-icons/md";
+export {MdPlaylistAdd,MdOutlineWatchLater,MdExplore,MdHistory,MdOutlinePlaylistAdd} from "react-icons/md";
 export {IoMdShareAlt} from "react-icons/io";
 export {RiPlayList2Line} from "react-icons/ri";
 export {CgPlayListRemove} from "react-icons/cg";

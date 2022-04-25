@@ -7,10 +7,12 @@ import toast from "react-hot-toast";
 
 const AuthContext= createContext();
 const token=JSON.parse(localStorage.getItem("auth_token"));
+const userName=JSON.parse(localStorage.getItem("user_name"));
 
 const inititalAuthStateValue={
     loginStatus:token?true:false,
-    authenticationToken:token
+    authenticationToken:token,
+    userName:userName
 }
 
 const AuthProvider=({children})=>{
@@ -21,7 +23,8 @@ const AuthProvider=({children})=>{
         const {data,status}= await signUpService(signUpData);        
              if(status === 201)
                 {
-                localStorage.setItem("auth_token",JSON.stringify(data.encodedToken));                                
+                localStorage.setItem("auth_token",JSON.stringify(data.encodedToken)); 
+               localStorage.setItem("user_name",JSON.stringify(data.createdUser.firstName));                              
                   navigateTo("/loginpage");
                  }
 }
@@ -32,8 +35,9 @@ const logInHandler = async(logInData)=>{
     if(status===200)
     {
         localStorage.setItem("auth_token", JSON.stringify(data.encodedToken));
+        localStorage.setItem("user_name",JSON.stringify(data.foundUser.firstName));  
         setUser({loginStatus:true,
-                authenticationToken:data.encodedToken})   
+                authenticationToken:data.encodedToken,userName:data.foundUser.firstName})   
          toast("Successfully loggedIn", { icon:  "✔️"  });
     
         navigateTo("/videopage");
