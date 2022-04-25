@@ -12,12 +12,14 @@ const initialState={
 const VideoContext =createContext();
 const VideoProvider =({children})=>{
     const [videos,setVideos]=useState([]);
-    const [state,dispatch]=useReducer(filterProductReducer,initialState);   
+    const [state,dispatch]=useReducer(filterProductReducer,initialState); 
+    const[isLoading,setIsLoading]=useState(false);  
     useEffect(()=> {
         (async ()=>{
             try{
+                 setIsLoading(true)
                   const {data}=await axios.get("/api/videos");
-                  console.log(data);
+                  setIsLoading(false);
                   setVideos(data.videos);
             }
             catch(err)
@@ -30,7 +32,7 @@ const VideoProvider =({children})=>{
 
     const FilteredData=getFilteredByCategory(state,videos);
     const FinalFilteredData=getFilteredBySearchQuery(state,FilteredData)
-    return <VideoContext.Provider value={{videos,setVideos,state,dispatch,FilteredData,FinalFilteredData}}>{children}</VideoContext.Provider>
+    return <VideoContext.Provider value={{videos,setVideos,state,dispatch,FilteredData,FinalFilteredData,isLoading}}>{children}</VideoContext.Provider>
 }
 
 const useVideos=()=>useContext(VideoContext);
