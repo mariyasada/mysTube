@@ -41,7 +41,7 @@ export const Hamburger = () => {
             </NavLink>
           );
         })}
-        {loginStatus ? (
+        {loginStatus && (
           <NavLink
             to="/profilepage"
             className="hamburger-menu-item"
@@ -52,7 +52,7 @@ export const Hamburger = () => {
               Profile
             </li>
           </NavLink>
-        ) : null}
+        )}
         {loginStatus ? (
           <NavLink
             to="/"

@@ -32,10 +32,11 @@ const PlayListProvider=({children})=>{
             },[user]);
 
 
- const createPlayList =async(title)=>{    
+ const createPlayList =async(title)=>{ 
      const data = await createPlayListService(user,title);     
      playListDispatch({type:"CREATE_PLAYLIST",payload:data.playlists})
      toast(`${title} playlist successfully created`,{icon:"✔️"});
+     
      
  }  
  const addVideoToPlayList =async(video,playlistId,title)=>{  
