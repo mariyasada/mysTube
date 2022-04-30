@@ -13,10 +13,16 @@
   height: 100vh;
   display: none;
 }
+.hamburger-item {
+  gap: 2px;
+
+  align-items: center;
+}
 .hamburger-menu-item {
   color: var(--primary-dark-color);
   display: flex;
   flex-direction: column;
+  align-self: center;
   text-align: left;
   margin-bottom: 1.5rem;
   font-weight: bold;

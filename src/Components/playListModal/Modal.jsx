@@ -12,6 +12,16 @@ export const Modal = ({ setShowModal, video, setIsOpen }) => {
     deleteVideoFromPlayList,
   } = usePlayList();
   const { playList } = playlistState;
+
+  const checkedPlaylist = (e, playlist) => {
+    if (e.target.checked) {
+      addVideoToPlayList(video, playlist._id, playlist.title);
+    } else {
+      deleteVideoFromPlayList(video, playlist._id);
+    }
+    setShowModal(false);
+    setIsOpen(false);
+  };
   return (
     <div className="modal-outer-container">
       <div className="playlist-modal-container flex-center flex-direction-column">
@@ -29,17 +39,7 @@ export const Modal = ({ setShowModal, video, setIsOpen }) => {
                   checked={playlist.videos.some(
                     (item) => item._id === video._id
                   )}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      addVideoToPlayList(video, playlist._id, playlist.title);
-                      setShowModal(false);
-                      setIsOpen(false);
-                    } else {
-                      deleteVideoFromPlayList(video, playlist._id);
-                      setShowModal(false);
-                      setIsOpen(false);
-                    }
-                  }}
+                  onChange={(e) => checkedPlaylist(e, playlist)}
                 />
                 <li className="playlist-item" key={playlist.title._id}>
                   {playlist.title}

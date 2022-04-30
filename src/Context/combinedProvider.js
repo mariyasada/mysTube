@@ -5,6 +5,7 @@ import {VideoProvider,CategoryProvider,AuthProvider,LikedandWatchLaterVideoProvi
 const CombinedProvider =({children})=>{
     return(
     <VideoProvider>
+        
         <AuthProvider>
             <PlayListProvider>
             <LikedandWatchLaterVideoProvider>
@@ -14,6 +15,7 @@ const CombinedProvider =({children})=>{
             </LikedandWatchLaterVideoProvider>
             </PlayListProvider>
         </AuthProvider>
+        
     </VideoProvider>)
 }
 export {CombinedProvider};

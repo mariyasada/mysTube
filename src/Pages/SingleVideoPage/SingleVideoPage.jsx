@@ -1,5 +1,5 @@
-import React from "react";
-import { SideBar, VideoCard } from "../../Components";
+import React, { useState } from "react";
+import { SideBar, VideoCard, Modal } from "../../Components";
 import "./singleVideopage.css";
 import {
   AiOutlineLike,
@@ -10,7 +10,7 @@ import {
   MdPlaylistAdd,
   FaRegBookmark,
 } from "../../Components/Icons";
-import { useLikedAndWatchLaterVideos, useVideos } from "../../Context";
+import { useAuth, useLikedAndWatchLaterVideos, useVideos } from "../../Context";
 import { useParams } from "react-router-dom";
 
 export const SingleVideoPage = () => {
@@ -25,10 +25,22 @@ export const SingleVideoPage = () => {
     addVideoToHistory,
   } = useLikedAndWatchLaterVideos();
   const { likedList, watchLaterList } = videoState;
-
   let singlevideo = videos.find((video) => video._id === videoId);
   const { title, channelName, categoryName, avatarImage, date, views } =
     singlevideo;
+
+  const [showModal, setShowModal] = useState(false);
+  const [listofComments, setListofComments] = useState([]);
+  const [commentInput, setCommentInput] = useState("");
+  const {
+    user: { userName },
+  } = useAuth();
+
+  const postACommentHandler = (inputvalue) => {
+    setListofComments((prevdata) => [...prevdata, inputvalue]);
+    console.log(listofComments);
+    setCommentInput("");
+  };
   return (
     <div className="single-video-with-sidebar-container flex-center">
       <SideBar />
@@ -95,9 +107,41 @@ export const SingleVideoPage = () => {
             )}
             <MdPlaylistAdd
               className="video-iframe-icon"
-              title="save o playlist"
+              title="save to playlist"
+              onClick={() => setShowModal(true)}
             />
           </div>
+        </div>
+        <div className="comment-section-part flex-center flex-direction-column">
+          <h3 className="comment-section-heading">Add a Comment</h3>
+          <div className="input-and-comment-btn-container flex-center">
+            <input
+              type="text"
+              className="input-for-comment input-textbox"
+              placeholder="Add Comment......"
+              value={commentInput}
+              onChange={(e) => setCommentInput(e.target.value)}
+            />
+            <button
+              className="btn btn-for-comment"
+              onClick={() => postACommentHandler(commentInput)}
+            >
+              Post
+            </button>
+          </div>
+          {listofComments.map((comment, index) => {
+            return (
+              <>
+                <div
+                  className="list-of-comment-section flex-center flex-direction-column"
+                  key={index}
+                >
+                  <h4 className="user-name-section">{userName}</h4>
+                  <p className="comment">{comment}</p>
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
       <div className="single-videopage-videolist flex-center flex-direction-column">
@@ -107,6 +151,13 @@ export const SingleVideoPage = () => {
           })
           .splice(Math.floor(Math.random() * videos.length), 14)}
       </div>
+      {showModal && (
+        <Modal
+          className="playlist-modal-container"
+          setShowModal={setShowModal}
+          video={singlevideo}
+        />
+      )}
     </div>
   );
 };

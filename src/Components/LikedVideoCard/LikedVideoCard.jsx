@@ -25,10 +25,9 @@ export const LikedVideoCard = ({ video, playlistId }) => {
   const [isShowModal, setShowModal] = useState(false);
   const { playlistState, deleteVideoFromPlayList } = usePlayList();
   const { playList } = playlistState;
-  console.log(playList, "liked video card");
 
   return (
-    <div className="liked-video-card-container flex-center">
+    <div className="horizontal-card flex-center">
       <div className="thumbnail-image-conatiner">
         <Link to={`/video/${video._id}`}>
           <img src={video.thumbnail} alt="image" className="thumbanail-image" />

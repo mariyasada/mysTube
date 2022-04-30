@@ -1,9 +1,13 @@
 import React from "react";
-import { FaHome, FaBookmark } from "react-icons/fa";
-import { MdExplore, MdOutlinePlaylistAdd, MdHistory } from "react-icons/md";
+import {
+  FaHome,
+  FaBookmark,
+  MdExplore,
+  MdOutlinePlaylistAdd,
+  MdHistory,
+} from "../Icons";
 import { AiTwotoneLike } from "react-icons/ai";
 import "./SideBar.css";
-import { SideBarRow } from "../SidebarRow/SideBarRow";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
