@@ -66,3 +66,8 @@ li {
   --primary-black: #141414;
   --background-purple: #f3e8ff;
 }
+@media screen and(max-width:500px) {
+  body {
+    font-size: 80%;
+  }
+}

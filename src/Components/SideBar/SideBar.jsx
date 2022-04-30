@@ -5,13 +5,19 @@ import {
   MdExplore,
   MdOutlinePlaylistAdd,
   MdHistory,
+  FaUserCircle,
 } from "../Icons";
 import { AiTwotoneLike } from "react-icons/ai";
 import "./SideBar.css";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "../../Context";
+import { sidebarOption } from "./sidebarConstants";
 
 export const SideBar = () => {
+  const {
+    user: { loginStatus },
+  } = useAuth();
   const getActiveStyleLink = ({ isActive }) => ({
     color: isActive ? "white" : "",
     background: isActive ? "#7b19f7" : "",
@@ -19,57 +25,30 @@ export const SideBar = () => {
   return (
     <aside className="sidebar-item-container flex-center">
       <ul>
-        <NavLink to="/">
-          <li className="sidebar-item-with-icon flex-center ">
-            <FaHome className="sidebar-icon" />
-            <h2 className="sidebar-item-title">Home</h2>
-          </li>
-        </NavLink>
+        {sidebarOption.map(({ path, name, Icon }) => {
+          return (
+            <NavLink
+              to={`${path}`}
+              key={name}
+              className="sidebar-item-with-icon flex-center"
+              style={getActiveStyleLink}
+            >
+              <Icon.type className="sidebar-icon" />
+              <h2 className="sidebar-item-title">{name}</h2>
+            </NavLink>
+          );
+        })}
 
-        <NavLink
-          to="/videopage"
-          className="sidebar-item-with-icon flex-center"
-          style={getActiveStyleLink}
-        >
-          <MdExplore className="sidebar-icon" />
-          <h2 className="sidebar-item-title">Explore</h2>
-        </NavLink>
-
-        <NavLink
-          to="/playlist"
-          className="sidebar-item-with-icon flex-center"
-          style={getActiveStyleLink}
-        >
-          <MdOutlinePlaylistAdd className="sidebar-icon" />
-          <h2 className="sidebar-item-title">PlayList</h2>
-        </NavLink>
-
-        <NavLink
-          to="/likevideopage"
-          className="sidebar-item-with-icon flex-center"
-          style={getActiveStyleLink}
-        >
-          <AiTwotoneLike className="sidebar-icon" />
-          <h2 className="sidebar-item-title">Liked Video</h2>
-        </NavLink>
-
-        <NavLink
-          to="/watchlater"
-          className="sidebar-item-with-icon flex-center"
-          style={getActiveStyleLink}
-        >
-          <FaBookmark className="sidebar-icon" />
-          <h2 className="sidebar-item-title">Watch Later</h2>
-        </NavLink>
-
-        <NavLink
-          to="/history"
-          className="sidebar-item-with-icon flex-center"
-          style={getActiveStyleLink}
-        >
-          <MdHistory className="sidebar-icon" />
-          <h2 className="sidebar-item-title">History</h2>
-        </NavLink>
+        {loginStatus ? (
+          <NavLink
+            to="/profilepage"
+            className="sidebar-item-with-icon flex-center"
+            style={getActiveStyleLink}
+          >
+            <FaUserCircle className="sidebar-icon" />
+            <h2 className="sidebar-item-title">Profile</h2>
+          </NavLink>
+        ) : null}
       </ul>
     </aside>
   );

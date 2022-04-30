@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route,Routes} from "react-router-dom";
 import { SideBar } from './Components';
-import { Home,  LogInPage, SignUpPage, SingleVideoPage, VideoListPage,MockMan, PageNotFound, LikeVideoPage, WatchLaterPage, HistoryPage, PlayList } from "./Pages";
+import { Home,  LogInPage, SignUpPage, SingleVideoPage, VideoListPage,MockMan, PageNotFound, LikeVideoPage, WatchLaterPage, HistoryPage, PlayList, Profile } from "./Pages";
 import { RequiresAuth } from './Router/RequiresAuth';
 
 
@@ -19,6 +19,7 @@ export const AppRoutes = () => {
            <Route path="/watchlater" element={<RequiresAuth children={<WatchLaterPage/>}></RequiresAuth>}/>
            <Route path="/history" element={<RequiresAuth children={<HistoryPage/>}></RequiresAuth>}/>
            <Route path="/playlist" element={<RequiresAuth children={<PlayList/>}></RequiresAuth>}/>
+           <Route path="/profilepage" element={<Profile/>}/>
            <Route path="*" element={<PageNotFound/>}/>
            <Route path="/mockman" element={<MockMan/>}/>
         </Routes>

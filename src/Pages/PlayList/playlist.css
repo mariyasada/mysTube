@@ -7,7 +7,6 @@
 }
 .videos-of-playlist-container {
   flex-wrap: wrap;
-  width: 100rem;
   column-gap: 3rem;
 }
 .playlist-video-heading {
@@ -16,15 +15,16 @@
   color: var(--dark-stone);
   align-self: flex-start;
 }
+
 .title-and-delete-icon-container {
-  width: 80rem;
-  height: auto;
+  width: 100%;
   padding: 1rem;
   justify-content: space-between;
   font-size: 1.8rem;
-  margin: 2rem 0 0 2rem;
+  margin: 2rem 0 0 1rem;
   color: var(--primary-dark-color);
   font-weight: bolder;
+  gap: 10rem;
 }
 .trash-icon {
   cursor: pointer;
@@ -33,7 +33,7 @@
 @media only screen and (min-width: 320px) and (max-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .videos-of-playlist-container {
     flex-direction: column;
-    width: 40rem;
+    /* width: 38rem; */
     margin-left: -2rem;
   }
   .playlist-videos-container {
@@ -42,7 +42,7 @@
   .playlist-video-heading {
     font-size: 1.8rem;
   }
-  .title-and-delete-icon-container {
-    width: 33rem;
-  }
+  /* .title-and-delete-icon-container {
+    width: 36rem;
+  } */
 }

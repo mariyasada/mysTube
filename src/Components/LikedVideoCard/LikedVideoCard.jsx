@@ -21,7 +21,7 @@ export const LikedVideoCard = ({ video, playlistId }) => {
     addToLikeVideo,
   } = useLikedAndWatchLaterVideos();
   const { likedList, watchLaterList } = videoState;
-  const pathname = useLocation();
+  const location = useLocation();
   const [isShowModal, setShowModal] = useState(false);
   const { playlistState, deleteVideoFromPlayList } = usePlayList();
   const { playList } = playlistState;
@@ -51,19 +51,6 @@ export const LikedVideoCard = ({ video, playlistId }) => {
               onClick={() => addToLikeVideo(video)}
             />
           )}
-          {playList.map((playlist) =>
-            playlist.videos.some((item) => item._id === video._id)
-          ) ? (
-            <CgPlayListRemove
-              className="liked-video-icons"
-              onClick={() => deleteVideoFromPlayList(video, playlistId)}
-            />
-          ) : (
-            <RiPlayList2Line
-              className="liked-video-icons"
-              onClick={() => setShowModal(true)}
-            />
-          )}
           {watchLaterList.some((item) => item._id === video._id) ? (
             <FaBookmark
               className="liked-video-icons"
@@ -75,6 +62,16 @@ export const LikedVideoCard = ({ video, playlistId }) => {
               onClick={() => addToWatchLaterVideo(video)}
             />
           )}
+
+          {location.pathname === "/playlist" &&
+            playList.map((playlist) =>
+              playlist.videos.some((item) => item._id === video._id)
+            ) && (
+              <CgPlayListRemove
+                className="liked-video-icons"
+                onClick={() => deleteVideoFromPlayList(video, playlistId)}
+              />
+            )}
         </div>
         {isShowModal && (
           <Modal
