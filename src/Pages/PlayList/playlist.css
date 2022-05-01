@@ -17,14 +17,14 @@
 }
 
 .title-and-delete-icon-container {
-  width: 100%;
+  width: 50vw;
   padding: 1rem;
   justify-content: space-between;
   font-size: 1.8rem;
   margin: 2rem 0 0 1rem;
   color: var(--primary-dark-color);
   font-weight: bolder;
-  gap: 10rem;
+  gap: 14rem;
 }
 .trash-icon {
   cursor: pointer;
@@ -42,7 +42,7 @@
   .playlist-video-heading {
     font-size: 1.8rem;
   }
-  /* .title-and-delete-icon-container {
-    width: 36rem;
-  } */
+  .title-and-delete-icon-container {
+    width: 35rem;
+  }
 }

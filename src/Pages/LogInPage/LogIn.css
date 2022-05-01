@@ -7,6 +7,9 @@
   background-color: var(--white-color);
   padding: 2rem;
 }
+form {
+  padding: 2rem;
+}
 .login-container .label-input-container {
   width: 100%;
   justify-content: center;
@@ -18,8 +21,11 @@
 .label-for-login {
   font-size: 2rem;
   color: var(--primary-medium-color);
-  margin: 2rem 0 1rem 6rem;
+  margin: 2rem 0 1rem 0.2rem;
   align-self: flex-start;
+}
+.signup-label {
+  margin: 2rem 0 1rem 6rem;
 }
 .input-textbox {
   width: 30rem;
@@ -63,15 +69,16 @@
   color: var(--primary-dark-color);
 }
 .new-user-link-container {
+  justify-content: center;
   font-size: 1.7rem;
   gap: 3rem;
-  margin-top: 1rem;
+  margin: 1rem 0 2rem 0;
   color: var(--primary-color);
 }
 .show-hide-toggle-icon {
   font-size: 2rem;
   position: absolute;
-  top: 21rem;
+  top: 23rem;
   right: 10rem;
   justify-content: center;
 }
@@ -83,7 +90,7 @@
     width: 20rem;
   }
   .label-for-login {
-    margin-left: 2rem;
+    margin-left: 0rem;
   }
   .remeber-and-forgotpasword-container {
     gap: 3rem;

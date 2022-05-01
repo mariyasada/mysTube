@@ -32,8 +32,15 @@ const AuthProvider=({children})=>{
                  }
 }
 
-const logInHandler = async(logInData)=>{       
-    const {data,status}=await logInService(logInData);
+const logInHandler = async(logInData)=>{   
+    console.log(logInData); 
+    if(logInData.email=="" && logInData.password=="")
+    {
+        toast("fill the fields",{ icon:  "✔️"  });
+    } 
+    else{  
+    const {data,status}=await logInService(logInData);   
+    console.log(data,status,"auth-context");
     if(status===200)
     {
         localStorage.setItem("auth_token", JSON.stringify(data.encodedToken));
@@ -47,6 +54,7 @@ const logInHandler = async(logInData)=>{
     
         navigateTo("/videopage");
     }
+}
 }
 
 const logOutHandler=()=>{

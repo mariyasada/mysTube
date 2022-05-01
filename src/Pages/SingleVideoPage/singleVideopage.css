@@ -3,9 +3,7 @@
 }
 .video-iframe-container {
   margin: 10rem 0 2rem 20rem;
-  width: fit-content;
-  /* width: 74rem; */
-  /* width: auto; */
+  width: fit-content;  
   padding: 5px;
 }
 .singlevideopage-title {

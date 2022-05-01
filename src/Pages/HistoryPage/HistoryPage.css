@@ -7,13 +7,11 @@
 }
 .heading-and-btn-conatiner {
   width: 100%;
-  /* width: 80rem; */
   padding: 5px;
   justify-content: space-between;
 }
 .videos-of-history-container {
   flex-wrap: wrap;
-  /* width: 100rem; */
   column-gap: 3rem;
 }
 .history-video-heading {

@@ -7,7 +7,6 @@
 }
 .videos-container {
   flex-wrap: wrap;
-  /* width: 100rem; */
   column-gap: 3rem;
 }
 .liked-video-heading {
