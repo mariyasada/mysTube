@@ -13,6 +13,7 @@ import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
 import { NavLink } from "react-router-dom";
 import { useAuth, useVideos } from "../../Context";
+import { reducerTypes } from "../../Context/Reducer/reducertype";
 
 export const NavBar = () => {
   const { state, dispatch } = useVideos();
@@ -56,7 +57,10 @@ export const NavBar = () => {
           className="input-searchbox"
           placeholder="Search"
           onChange={(e) =>
-            dispatch({ type: "SEARCH_BY_QUERY", payload: e.target.value })
+            dispatch({
+              type: reducerTypes.SEARCH_BY_QUERY,
+              payload: e.target.value,
+            })
           }
         />
       </div>
