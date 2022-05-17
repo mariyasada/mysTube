@@ -18,12 +18,12 @@
 * [liked video page](https://mys-tube.netlify.app/likevideopage)
 * [history page](https://mys-tube.netlify.app/history)
 * [playlist Management](https://mys-tube.netlify.app/playlist)
-* [single video page]
+* single video page
 * Authentication
   * [User Login](https://mys-tube.netlify.app/loginpage)
   * [User signup](https://mys-tube.netlify.app/signup)  
 * Filter videos by category
-* Search the Product
+* Search the video
 * [Error Page](https://mys-tube.netlify.app/signu)
 * user profile page
 
