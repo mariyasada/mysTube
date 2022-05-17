@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { usePlayList } from "../../Context";
 import { AiOutlinePlusSquare, FaTimes, AiOutlineCheckCircle } from "../Icons";
 import "../playListModal/modal.css";
@@ -22,12 +23,24 @@ export const Modal = ({ setShowModal, video, setIsOpen }) => {
     setShowModal(false);
     setIsOpen(false);
   };
+  const playlistCreateHandler = (inputvalue) => {
+    if (inputvalue.length === 0) {
+      toast("please enter something", { icon: "✔️" });
+    } else {
+      createPlayList(playlistData);
+      setPlayListData("");
+    }
+  };
   return (
     <div className="modal-outer-container">
       <div className="playlist-modal-container flex-center flex-direction-column">
         <span className="title-and-cancel-icon-container flex-center">
           <p>Save to...</p>
-          <FaTimes onClick={() => setShowModal(false)} />
+          <FaTimes
+            onClick={() => {
+              setShowModal(false), setIsOpen(false);
+            }}
+          />
         </span>
         <div className="playlist-items-container flex-center flex-direction-column">
           {playList.map((playlist) => {
@@ -59,8 +72,7 @@ export const Modal = ({ setShowModal, video, setIsOpen }) => {
           <AiOutlinePlusSquare
             className="plus-icon"
             onClick={() => {
-              createPlayList(playlistData);
-              setPlayListData("");
+              playlistCreateHandler(playlistData);
             }}
           />
         </div>

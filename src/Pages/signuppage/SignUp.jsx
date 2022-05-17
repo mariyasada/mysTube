@@ -5,6 +5,7 @@ import "./Signup.css";
 import { initialSignUpData } from "../../Context/Constants/AuthConstant";
 import { useAuth } from "../../Context/Auth-context";
 import { FaEyeSlash, FaEye } from "../../Components/Icons";
+import toast from "react-hot-toast";
 
 export const SignUpPage = () => {
   const [signUpData, setSignUpData] = useState(initialSignUpData);
@@ -26,15 +27,16 @@ export const SignUpPage = () => {
       e.preventDefault();
       signUpHandler({ signUpData });
     } else {
+      e.preventDefault();
       seterrMessage("password and confirmpassord doesn't match");
       navigate("/signup");
     }
   };
   return (
-    <div className="login-container flex-center flex-direction-column border-round">
+    <form className="login-container flex-center flex-direction-column border-round">
       <h2 className="heading text-size-md">SignUp</h2>
       <div className="label-input-container flex-center flex-direction-column">
-        <label htmlFor="Name" className="label-for-login ">
+        <label htmlFor="Name" className="label-for-login signup-label ">
           First Name
         </label>
         <input
@@ -43,12 +45,12 @@ export const SignUpPage = () => {
           className="input-textbox"
           id="FirstName"
           name="firstName"
-          required
           onChange={signupChangeHandler}
+          required
         />
       </div>
       <div className="label-input-container flex-center flex-direction-column">
-        <label htmlFor="Name" className="label-for-login ">
+        <label htmlFor="Name" className="label-for-login signup-label ">
           Last Name
         </label>
         <input
@@ -62,7 +64,7 @@ export const SignUpPage = () => {
         />
       </div>
       <div className="label-input-container flex-center flex-direction-column">
-        <label htmlFor="Email" className="label-for-login ">
+        <label htmlFor="Email" className="label-for-login signup-label ">
           Email Address
         </label>
         <input
@@ -76,7 +78,7 @@ export const SignUpPage = () => {
         />
       </div>
       <div className="label-input-container flex-center flex-direction-column">
-        <label htmlFor="password" className="label-for-login ">
+        <label htmlFor="password" className="label-for-login signup-label ">
           Password
         </label>
         <input
@@ -88,16 +90,25 @@ export const SignUpPage = () => {
           onChange={signupChangeHandler}
           required
         />
-        <span className="show-hige-toggle-icon password-badge flex-center">
+        <span className="show-hide-toggle-icon password-badge flex-center">
           {passVisible ? (
-            <FaEyeSlash onClick={() => setPassVisible(!passVisible)} />
+            <FaEyeSlash
+              onClick={() => setPassVisible(!passVisible)}
+              className="icon"
+            />
           ) : (
-            <FaEye onClick={() => setPassVisible(!passVisible)} />
+            <FaEye
+              onClick={() => setPassVisible(!passVisible)}
+              className="icon"
+            />
           )}
         </span>
       </div>
       <div className="label-input-container flex-center flex-direction-column">
-        <label htmlFor="Confirm password" className="label-for-login ">
+        <label
+          htmlFor="Confirm password"
+          className="label-for-login signup-label "
+        >
           Confirm Password
         </label>
         <input
@@ -109,11 +120,17 @@ export const SignUpPage = () => {
           onChange={signupChangeHandler}
           required
         />
-        <span className="show-hige-toggle-icon confirm-password-badge flex-center">
+        <span className="show-hide-toggle-icon confirm-password-badge flex-center">
           {conPassVisible ? (
-            <FaEyeSlash onClick={() => setConPassVisible(!conPassVisible)} />
+            <FaEyeSlash
+              onClick={() => setConPassVisible(!conPassVisible)}
+              className="icon"
+            />
           ) : (
-            <FaEye onClick={() => setConPassVisible(!conPassVisible)} />
+            <FaEye
+              onClick={() => setConPassVisible(!conPassVisible)}
+              className="icon"
+            />
           )}
         </span>
       </div>
@@ -139,6 +156,6 @@ export const SignUpPage = () => {
           Log In Here
         </Link>
       </div>
-    </div>
+    </form>
   );
 };

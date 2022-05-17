@@ -9,3 +9,4 @@ export {LikeVideoPage} from "./LikedVideoPage/LikeVideoPage"
 export {WatchLaterPage} from "./WatchLaterpage/WatchLaterPage";
 export {HistoryPage} from "./HistoryPage/HistoryPage";
 export {PlayList} from "./PlayList/PlayList";
+export {Profile} from "./ProfilePage/Profile"

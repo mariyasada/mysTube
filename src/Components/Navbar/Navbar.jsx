@@ -13,6 +13,7 @@ import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
 import { NavLink } from "react-router-dom";
 import { useAuth, useVideos } from "../../Context";
+import { reducerTypes } from "../../Context/Reducer/reducertype";
 
 export const NavBar = () => {
   const { state, dispatch } = useVideos();
@@ -35,7 +36,7 @@ export const NavBar = () => {
           )}
         </div>
         <NavLink to="/">
-          <img className="image-logo" src="./assets/logo1.png" alt="mt-logo" />
+          <img className="image-logo" src="/assets/logo1.png" alt="mt-logo" />
         </NavLink>
         <div className="flex-center nav-items-container">
           <ul className="nav-items">
@@ -56,7 +57,10 @@ export const NavBar = () => {
           className="input-searchbox"
           placeholder="Search"
           onChange={(e) =>
-            dispatch({ type: "SEARCH_BY_QUERY", payload: e.target.value })
+            dispatch({
+              type: reducerTypes.SEARCH_BY_QUERY,
+              payload: e.target.value,
+            })
           }
         />
       </div>
@@ -75,7 +79,7 @@ export const NavBar = () => {
             ) : (
               <FaUserAlt className="header-icon" title="logIn" />
             )}
-            <p className="title-login">{loginStatus ? "LogOut" : "LogIn"}</p>
+            <p className="title-login">{loginStatus ? "Logout" : "Login"}</p>
           </NavLink>
         </span>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SideBar, VideoCard, Modal } from "../../Components";
 import "./singleVideopage.css";
 import {
@@ -12,6 +12,7 @@ import {
 } from "../../Components/Icons";
 import { useAuth, useLikedAndWatchLaterVideos, useVideos } from "../../Context";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export const SingleVideoPage = () => {
   const { videos } = useVideos();
@@ -25,9 +26,8 @@ export const SingleVideoPage = () => {
     addVideoToHistory,
   } = useLikedAndWatchLaterVideos();
   const { likedList, watchLaterList } = videoState;
-  let singlevideo = videos.find((video) => video._id === videoId);
-  const { title, channelName, categoryName, avatarImage, date, views } =
-    singlevideo;
+
+  const singleVideo = videos?.find((video) => video._id === videoId);
 
   const [showModal, setShowModal] = useState(false);
   const [listofComments, setListofComments] = useState([]);
@@ -46,63 +46,63 @@ export const SingleVideoPage = () => {
       <SideBar />
       <div className="video-iframe-container">
         <iframe
-          onLoad={() => addVideoToHistory(singlevideo)}
+          onLoad={() => addVideoToHistory(singleVideo)}
           width="727"
           height="409"
-          src={`https://www.youtube.com/embed/${singlevideo._id}`}
+          src={`https://www.youtube.com/embed/${singleVideo?._id}`}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
 
-        <p className="singlevideopage-title">{title}</p>
+        <p className="singlevideopage-title">{singleVideo?.title}</p>
         <div className="title-and-icons-container flex-center">
           <div className="owner-category-date-container flex-center flex-direction-column">
             <div className="avatar-and-title-container flex-center">
               <span className="avatar-image-container">
                 <img
-                  src={avatarImage}
+                  src={singleVideo?.avatarImage}
                   className="avatar avatar-xsm single-video-avatar"
-                  alt={channelName}
+                  alt={singleVideo?.channelName}
                 />
               </span>
-              <p className="channel-owner">{channelName}</p>
+              <p className="channel-owner">{singleVideo?.channelName}</p>
             </div>
             <div className="cateogory-viwes-conatiner flex-center">
-              <p className="category-name">{categoryName}</p>
+              <p className="category-name">{singleVideo?.categoryName}</p>
               <BsDot className="dot-icon" />
-              <p className="views-text">{views}</p>
+              <p className="views-text">{singleVideo?.views}</p>
               <BsDot className="dot-icon" />
-              <p className="release-date">{date}</p>
+              <p className="release-date">{singleVideo?.date}</p>
             </div>
           </div>
           <div className="video-iframe-icon-container flex-center">
-            {likedList.some((item) => item._id === singlevideo._id) ? (
+            {likedList.some((item) => item._id === singleVideo._id) ? (
               <AiFillDislike
                 className="video-iframe-icon"
                 title="like"
-                onClick={() => removeFromLikedVideo(singlevideo)}
+                onClick={() => removeFromLikedVideo(singleVideo)}
               />
             ) : (
               <AiOutlineLike
                 className="video-iframe-icon"
                 title="like"
-                onClick={() => addToLikeVideo(singlevideo)}
+                onClick={() => addToLikeVideo(singleVideo)}
               />
             )}
 
-            {watchLaterList.some((item) => item._id === singlevideo._id) ? (
+            {watchLaterList.some((item) => item._id === singleVideo._id) ? (
               <FaBookmark
                 className="video-iframe-icon"
                 title="watch later"
-                onClick={() => removeFromWatchLater(singlevideo)}
+                onClick={() => removeFromWatchLater(singleVideo)}
               />
             ) : (
               <FaRegBookmark
                 className="video-iframe-icon"
                 title="watch later"
-                onClick={() => addToWatchLaterVideo(singlevideo)}
+                onClick={() => addToWatchLaterVideo(singleVideo)}
               />
             )}
             <MdPlaylistAdd
@@ -155,7 +155,7 @@ export const SingleVideoPage = () => {
         <Modal
           className="playlist-modal-container"
           setShowModal={setShowModal}
-          video={singlevideo}
+          video={singleVideo}
         />
       )}
     </div>

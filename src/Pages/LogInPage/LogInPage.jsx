@@ -22,76 +22,78 @@ export const LogInPage = () => {
     <>
       <div className="login-container flex-center flex-direction-column border-round">
         <h2 className="heading text-size-md">LOGIN</h2>
-        <div className="label-input-container flex-center flex-direction-column">
-          <label htmlFor="Email" className="label-for-login ">
-            Email Address
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="abc@gmail.com"
-            className="input-textbox"
-            id="Email"
-            onChange={logInChaneHnadler}
-            required
-          />
-        </div>
-        <div className="label-input-container flex-center flex-direction-column">
-          <label htmlFor="password" className="label-for-login ">
-            Password
-          </label>
-          <input
-            type={passVisible ? "password" : "text"}
-            name="password"
-            placeholder="*********"
-            className="input-textbox"
-            id="password"
-            onChange={logInChaneHnadler}
-            required
-          />
-          <span className="show-hide-toggle-icon flex-center">
-            {passVisible ? (
-              <FaEyeSlash onClick={() => setPassVisible(!passVisible)} />
-            ) : (
-              <FaEye onClick={() => setPassVisible(!passVisible)} />
-            )}
+        <form>
+          <div className="label-input-container flex-center flex-direction-column">
+            <label htmlFor="Email" className="label-for-login ">
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="abc@gmail.com"
+              className="input-textbox"
+              id="Email"
+              onChange={logInChaneHnadler}
+              required
+            />
+          </div>
+          <div className="label-input-container flex-center flex-direction-column">
+            <label htmlFor="password" className="label-for-login ">
+              Password
+            </label>
+            <input
+              type={passVisible ? "password" : "text"}
+              name="password"
+              placeholder="*********"
+              className="input-textbox"
+              id="password"
+              onChange={logInChaneHnadler}
+              required
+            />
+            <span className="show-hide-toggle-icon flex-center">
+              {passVisible ? (
+                <FaEyeSlash onClick={() => setPassVisible(!passVisible)} />
+              ) : (
+                <FaEye onClick={() => setPassVisible(!passVisible)} />
+              )}
+            </span>
+          </div>
+          <div className="remeber-and-forgotpasword-container flex-center">
+            <label htmlFor="remeberme" className="rememberme-with-checkbox">
+              <input type="checkbox" className="input-rememberme" />
+              Remember me
+            </label>
+            <Link to="/" className="forgotpassword-text">
+              Forgot Password
+            </Link>
+          </div>
+          <span>
+            <button
+              className="btn login-btn border-round"
+              onClick={(e) => {
+                e.preventDefault(), logInHandler(logInData);
+              }}
+            >
+              Login
+            </button>
           </span>
-        </div>
-        <div className="remeber-and-forgotpasword-container flex-center">
-          <label htmlFor="remeberme" className="rememberme-with-checkbox">
-            <input type="checkbox" className="input-rememberme" />
-            Remember me
-          </label>
-          <Link to="/" className="forgotpassword-text">
-            Forgot Password
-          </Link>
-        </div>
-        <span>
-          <button
-            className="btn login-btn border-round"
-            onClick={(e) => {
-              e.preventDefault(), logInHandler(logInData);
-            }}
-          >
-            Login
-          </button>
-        </span>
-        <span>
-          <button
-            className="btn login-btn-outline border-round"
-            onClick={(e) => {
-              e.preventDefault(), logInHandler(guestData);
-            }}
-          >
-            Login As Guest
-          </button>
-        </span>
-        <div className="new-user-link-container flex-center">
-          <p>New User ?</p>
-          <Link to="/signup" className="signup-link">
-            Register Here
-          </Link>
-        </div>
+          <span>
+            <button
+              className="btn login-btn-outline border-round"
+              onClick={(e) => {
+                e.preventDefault(), logInHandler(guestData);
+              }}
+            >
+              Login As Guest
+            </button>
+          </span>
+          <div className="new-user-link-container flex-center">
+            <p>New User ?</p>
+            <Link to="/signup" className="signup-link">
+              Register Here
+            </Link>
+          </div>
+        </form>
       </div>
     </>
   );

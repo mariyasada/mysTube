@@ -3,6 +3,10 @@ import { getLikedVideo,addtoLikePageService,removeFromLikeVideoSevice,getWatchLa
 import { useAuth } from "./Auth-context";
 import { likedvideosReducer } from "./Reducer/likedvideosReducer";
 import toast from "react-hot-toast";
+import {reducerTypes} from "./Reducer/reducertype";
+
+const {LOAD_LIKEVIDEOS,LOAD_WATCHLATERVIDEOS, ADD_TO_LIKE,REMOVE_FROM_LIKE,ADD_TO_WATCHLATER,REMOVE_FROM_WATCHLATER,ADD_TO_HISTORY,REMOVE_FROM_HISTORY,DELETE_HISTORY,LOAD_HISTORY,LOAD_WATCHLATER_VIDEOS}=reducerTypes;
+
 
 
 const LikedandwatchLaterVideoContext=createContext();
@@ -27,9 +31,9 @@ const LikedandWatchLaterVideoProvider=({children})=>{
                   const[data,wData,hData]= await Promise.all([getLikedVideo(user), getWatchLaterVideos(user),getHistoryData(user)]);                
                   if((data && wData && hData) !==undefined)
                   {
-                    videoDispatch({type:"LOAD_LIKED_VIDEOS",payload:data.likes})
-                    videoDispatch({type:"LOAD_WATCHLATER_VIDEOS",payload:wData.watchlater})
-                    videoDispatch({type:"LOAD_HISTORY",payload:hData.history})
+                    videoDispatch({type:LOAD_LIKEVIDEOS,payload:data.likes})
+                    videoDispatch({type:LOAD_WATCHLATER_VIDEOS,payload:wData.watchlater})
+                    videoDispatch({type:LOAD_HISTORY,payload:hData.history})
                   }
                   else{
                        throw new Error("could not find data")
@@ -44,7 +48,7 @@ const LikedandWatchLaterVideoProvider=({children})=>{
         const {data,status}=await addtoLikePageService(video,user);
         if(status===201)
         {
-              videoDispatch({type:"ADD_VIDEO_TO_LIKE_PAGE",payload:data.likes})
+              videoDispatch({type:ADD_TO_LIKE,payload:data.likes})
               toast("added to like  videos page",{icon:"✔️"});
         }
         else{
@@ -58,7 +62,7 @@ const removeFromLikedVideo=async(video)=>{
    
     if(status===200)
         {
-            videoDispatch({type:"REMOVE_VIDEO_FROM_LIKE_PAGE",payload:data.likes})
+            videoDispatch({type:REMOVE_FROM_LIKE,payload:data.likes})
             toast("remove from liked videos page", { icon: "❌" });
         }
         else{
@@ -70,7 +74,7 @@ const addToWatchLaterVideo =async(video)=>{
     const {data,status}= await addTowatchLaterVideoService(video,user);
     if(status===201)
     {
-      videoDispatch({type:"ADD_TO_WATCH_LATER",payload:data.watchlater}) 
+      videoDispatch({type:ADD_TO_WATCHLATER,payload:data.watchlater}) 
         toast("added to watch later videos page",{icon:"✔️"});
     }
     else{
@@ -83,7 +87,7 @@ const removeFromWatchLater=async(video)=>{
     const {data,status}=await removeFromWatchLaterService(video,user);
     if(status===200)
     {
-      videoDispatch({type:"REMOVE_FROM_WATCH_LATER",payload:data.watchlater})
+      videoDispatch({type:REMOVE_FROM_WATCHLATER,payload:data.watchlater})
       toast("remove from watch later videos page", { icon: "❌" });
     }
     else{
@@ -93,19 +97,19 @@ const removeFromWatchLater=async(video)=>{
 // ADD VIDEO TO HISTORYPAGE
 const addVideoToHistory =async(video)=>{    
     const {data}=await addVideoToHistoryService(video,user);
-    videoDispatch({type:"ADD_TO_HISTORY",payload:data.history})
+    videoDispatch({type:ADD_TO_HISTORY,payload:data.history})
 }
 //  REMOVE VIDEO FROM HISTORYPAGE
 const removeVideoFromHistory =async(video)=>{
     const {data}= await removeVideoFromHistoryService(video,user);
-    videoDispatch({type:"REMOVE_FROM_HISTORY",payload:data.history})
+    videoDispatch({type:REMOVE_FROM_HISTORY,payload:data.history})
     toast("Remove video from history", {icon:"✔️"});
 }
 const removeAllHistory=async()=>{
     const {data,status}=await removeAllHistoryService(user);
     if(status===200)
     {
-      videoDispatch({type:"REMOVE_ALL_HISTORY",payload:data.history})
+      videoDispatch({type:DELETE_HISTORY,payload:data.history})
       toast("cleared all history",{icon:"✔️"})
     }
     else{

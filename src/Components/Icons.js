@@ -1,5 +1,5 @@
 export { FiMenu } from "react-icons/fi";
-export { FaHome, FaUserAlt ,FaEye,FaEyeSlash,FaBookmark,FaRegBookmark,FaTimes,FaTrash,FaRegSun,FaMoon} from "react-icons/fa";
+export { FaHome, FaUserAlt ,FaEye,FaEyeSlash,FaBookmark,FaRegBookmark,FaTimes,FaTrash,FaRegSun,FaMoon,FaUserCircle} from "react-icons/fa";
 export { BsSearch,BsDot,BsBookmarkFill,BsTrash,BsThreeDotsVertical } from "react-icons/bs";
 export { GiCancel } from "react-icons/gi";
 export {FiLogOut} from "react-icons/fi";

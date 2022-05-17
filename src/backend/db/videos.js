@@ -71,7 +71,7 @@ export const videos = [
     thumbnail: "https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/yndPwAMGEgg-HD_rCf8Y4Zgx.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491202520"
   },
   {
-    _id:"tuVuIHUYh6k&t=568s", 
+    _id:"tuVuIHUYh6k", 
     title:"10 AMAZING Acrylic Pour Paintings - Pretty with Pink / Satisfying Art video",
     channelName: "Rinske Douna",
     views: "1.8M views",

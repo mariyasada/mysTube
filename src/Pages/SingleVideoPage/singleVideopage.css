@@ -3,7 +3,7 @@
 }
 .video-iframe-container {
   margin: 10rem 0 2rem 20rem;
-  width: 74rem;
+  width: fit-content;  
   padding: 5px;
 }
 .singlevideopage-title {
@@ -117,7 +117,6 @@
   .cateogory-viwes-conatiner {
     font-size: 10.5px;
     gap: 1px;
-    /* background-color: aqua; */
   }
   .video-iframe-icon {
     font-size: 1.5rem;

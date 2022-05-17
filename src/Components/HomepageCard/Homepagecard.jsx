@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { reducerTypes } from "../../Context/Reducer/reducertype";
 import { useVideos } from "../../Context/video-context";
 import "../HomepageCard/homepagecard.css";
 
@@ -24,7 +25,7 @@ export const HomePageCard = ({ category, index }) => {
             className="btn btn-primary-first"
             onClick={() => {
               dispatch({
-                type: "SET_CURRENT_CATEGORY",
+                type: reducerTypes.SET_CATEGORY,
                 payload: categoryName,
               }),
                 navigate("/videopage");

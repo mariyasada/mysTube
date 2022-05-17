@@ -48,7 +48,8 @@
 .liked-video-icons-container {
   margin: 0.3rem 1rem -4rem 6rem;
   width: 10rem;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 20px;
 }
 .liked-video-icons {
   font-size: 2rem;
@@ -59,10 +60,10 @@
   color: var(--primary-medium-color);
 }
 @media only screen and (min-width: 320px) and (max-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
-  .liked-video-card-container {
+  .horizontal-card {
     margin-bottom: 10px;
     height: 15rem;
-    width: 32rem;
+    width: 33rem;
     justify-self: center;
   }
   .thumbanail-image {
@@ -101,7 +102,7 @@
   .msg-for-user {
     width: 23rem;
     margin-left: 12rem;
-    background-color: red;
+    /* background-color: red; */
     font-size: 1.4rem;
   }
 }

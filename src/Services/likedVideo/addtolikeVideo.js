@@ -1,13 +1,13 @@
 import axios from "axios"
-export const addtoLikePageService=async(video,user)=>{    
+export const addtoLikePageService=async(video,user)=>{  
+    console.log(video,user);  
     try{
         const {data,status}=await axios.post("/api/user/likes",{video},{
             headers:{authorization: user.authenticationToken}
         })    
-        console.log(data);
     return {data,status};
     }
-    catch{
-        console.error("could not complete the request");
+    catch(err){
+        console.error("could not complete the request",err);
     }
 }

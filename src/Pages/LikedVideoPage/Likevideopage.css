@@ -7,7 +7,6 @@
 }
 .videos-container {
   flex-wrap: wrap;
-  width: 100rem;
   column-gap: 3rem;
 }
 .liked-video-heading {
@@ -19,7 +18,7 @@
 @media only screen and (min-width: 320px) and (max-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .videos-container {
     flex-direction: column;
-    width: 40rem;
+    width: 39rem;
     margin-left: -2rem;
   }
   .liked-videos-container {

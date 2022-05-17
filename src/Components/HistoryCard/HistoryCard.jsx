@@ -8,7 +8,7 @@ import "../LikedVideoCard/Likevideocard.css";
 export const HistoryCard = ({ video }) => {
   const { removeVideoFromHistory } = useLikedAndWatchLaterVideos();
   return (
-    <div className="liked-video-card-container flex-center">
+    <div className="horizontal-card flex-center">
       <div className="thumbnail-image-conatiner">
         <Link to={`/video/${video._id}`}>
           <img src={video.thumbnail} alt="image" className="thumbanail-image" />
