@@ -12,14 +12,16 @@ export const HistoryPage = () => {
       <div className="history-videos-container flex-center flex-direction-column">
         <div className="heading-and-btn-conatiner flex-center">
           <h2 className="history-video-heading">Watched Videos</h2>
-          <span>
-            <button
-              className="btn btn-history border-round"
-              onClick={() => removeAllHistory()}
-            >
-              Clear History
-            </button>
-          </span>
+          {historyList.length === 0 ? null : (
+            <span>
+              <button
+                className="btn btn-history border-round"
+                onClick={() => removeAllHistory()}
+              >
+                Clear History
+              </button>
+            </span>
+          )}
         </div>
         <div className="videos-of-history-container flex-center">
           {historyList.length === 0 ? (
