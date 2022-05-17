@@ -24,7 +24,6 @@ export const Modal = ({ setShowModal, video, setIsOpen }) => {
     setIsOpen(false);
   };
   const playlistCreateHandler = (inputvalue) => {
-    console.log(inputvalue, "input");
     if (inputvalue.length === 0) {
       toast("please enter something", { icon: "✔️" });
     } else {
@@ -37,7 +36,11 @@ export const Modal = ({ setShowModal, video, setIsOpen }) => {
       <div className="playlist-modal-container flex-center flex-direction-column">
         <span className="title-and-cancel-icon-container flex-center">
           <p>Save to...</p>
-          <FaTimes onClick={() => setShowModal(false)} />
+          <FaTimes
+            onClick={() => {
+              setShowModal(false), setIsOpen(false);
+            }}
+          />
         </span>
         <div className="playlist-items-container flex-center flex-direction-column">
           {playList.map((playlist) => {
@@ -69,13 +72,6 @@ export const Modal = ({ setShowModal, video, setIsOpen }) => {
           <AiOutlinePlusSquare
             className="plus-icon"
             onClick={() => {
-              console.log(playlistData);
-              // if (playlistData === []) {
-              //   toast("please enter a data");
-              // } else {
-              //   createPlayList(playlistData);
-              //   setPlayListData("");
-              // }
               playlistCreateHandler(playlistData);
             }}
           />

@@ -36,7 +36,7 @@ export const NavBar = () => {
           )}
         </div>
         <NavLink to="/">
-          <img className="image-logo" src="./assets/logo1.png" alt="mt-logo" />
+          <img className="image-logo" src="/assets/logo1.png" alt="mt-logo" />
         </NavLink>
         <div className="flex-center nav-items-container">
           <ul className="nav-items">
@@ -79,7 +79,7 @@ export const NavBar = () => {
             ) : (
               <FaUserAlt className="header-icon" title="logIn" />
             )}
-            <p className="title-login">{loginStatus ? "LogOut" : "LogIn"}</p>
+            <p className="title-login">{loginStatus ? "Logout" : "Login"}</p>
           </NavLink>
         </span>
       </div>

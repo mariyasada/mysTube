@@ -27,8 +27,12 @@ const AuthProvider=({children})=>{
                 {
                 localStorage.setItem("auth_token",JSON.stringify(data.encodedToken)); 
                localStorage.setItem("user_name",JSON.stringify(data.createdUser.firstName));
-                localStorage.setItem("email",JSON.stringify(data.createdUser.email));                              
-                  navigateTo("/loginpage");
+                localStorage.setItem("email",JSON.stringify(data.createdUser.email));    
+                setUser({loginStatus:true,
+                authenticationToken:data.encodedToken,
+                userName:data.createdUser.firstName,
+                email:data.createdUser.email})
+                  navigateTo("/videopage");
                  }
 }
 
@@ -40,7 +44,6 @@ const logInHandler = async(logInData)=>{
     } 
     else{  
     const {data,status}=await logInService(logInData);   
-    console.log(data,status,"auth-context");
     if(status===200)
     {
         localStorage.setItem("auth_token", JSON.stringify(data.encodedToken));
@@ -53,6 +56,9 @@ const logInHandler = async(logInData)=>{
          toast("Successfully loggedIn", { icon:  "✔️"  });
     
         navigateTo("/videopage");
+    }
+    else{
+        toast("could not complete the request");
     }
 }
 }
