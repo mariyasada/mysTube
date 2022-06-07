@@ -92,9 +92,12 @@ form {
   .label-for-login {
     margin-left: 0rem;
   }
+  .signup-label {
+    margin-left: 2rem;
+  }
   .remeber-and-forgotpasword-container {
-    gap: 3rem;
-    font-size: 1.5rem;
+    justify-content: space-between;
+    font-size: 1.2rem;
   }
   .show-hide-toggle-icon {
     right: 6rem;
