@@ -47,6 +47,18 @@ li {
   margin: 10rem 20rem;
   color: var(--primary-dark-color);
 }
+.loader {
+  z-index: 30;
+  position: fixed;
+  top: 10%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+.loader.homepage {
+  top: 10%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
 
 :root {
   --primary-color: #7b19f7;
@@ -69,5 +81,11 @@ li {
 @media screen and(max-width:500px) {
   body {
     font-size: 80%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .loader {
+    top: -2%;
+    left: 0%;
   }
 }

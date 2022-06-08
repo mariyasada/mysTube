@@ -6,6 +6,8 @@ import { initialSignUpData } from "../../Context/Constants/AuthConstant";
 import { useAuth } from "../../Context/Auth-context";
 import { FaEyeSlash, FaEye } from "../../Components/Icons";
 import toast from "react-hot-toast";
+import { useVideos } from "../../Context";
+import { Loader } from "../../Components";
 
 export const SignUpPage = () => {
   const [signUpData, setSignUpData] = useState(initialSignUpData);
@@ -14,6 +16,7 @@ export const SignUpPage = () => {
   const [errmessage, seterrMessage] = useState("");
   const { signUpHandler } = useAuth();
   const navigate = useNavigate();
+  const { isLoading, setIsLoading } = useVideos();
 
   const signupChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -156,6 +159,11 @@ export const SignUpPage = () => {
           Log In Here
         </Link>
       </div>
+      {isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
     </form>
   );
 };

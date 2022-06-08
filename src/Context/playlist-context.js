@@ -4,6 +4,7 @@ import { playListReducer } from "./Reducer/playListReducer";
 import { createPlayListService,getPlayListData,addVideoToPlayListService,deleteVideoFromPlayListService,deletewholePlayListService } from "../Services";
 import toast from "react-hot-toast";
 import { reducerTypes } from "./Reducer/reducertype";
+import { useVideos } from "./video-context";
 const {LOAD_PLAYLIST,CREATE_PLAYLIST,DELETE_PLAYLIST,ADD_VIDEO_TO_PLAYLIST,DELETE_VIDEO_FROM_PLAYLIST}=reducerTypes
 
 
@@ -14,6 +15,7 @@ const initialState={
 const PlayListProvider=({children})=>{
     const {user}=useAuth();
     const[playlistState,playListDispatch]=useReducer(playListReducer,initialState);
+    const {setIsLoading}=useVideos();
 
     useEffect(()=>{
           if(user.loginStatus)
@@ -35,14 +37,18 @@ const PlayListProvider=({children})=>{
 
 
  const createPlayList =async(title)=>{ 
-     const data = await createPlayListService(user,title);     
+     setIsLoading(true);
+     const data = await createPlayListService(user,title);  
+     setIsLoading(false);   
      playListDispatch({type:CREATE_PLAYLIST,payload:data.playlists})
      toast(`${title} playlist successfully created`,{icon:"✔️"});
      
      
  }  
- const addVideoToPlayList =async(video,playlistId,title)=>{  
+ const addVideoToPlayList =async(video,playlistId,title)=>{ 
+     setIsLoading(true); 
      const {data,status}=await addVideoToPlayListService(video,playlistId,user);
+     setIsLoading(false);
      
     if(status===201)
     {
@@ -54,8 +60,10 @@ const PlayListProvider=({children})=>{
      }
  } 
 
- const deleteVideoFromPlayList =async(video,playlistId)=>{        
+ const deleteVideoFromPlayList =async(video,playlistId)=>{
+     setIsLoading(true);        
    const {data,status}=await deleteVideoFromPlayListService(video,playlistId,user);
+   setIsLoading(false);
    
    if(status===200)
     {
@@ -69,8 +77,9 @@ const PlayListProvider=({children})=>{
  }
 
  const deleteWholePlayList =async(playlistId)=>{
-    
+     setIsLoading(true);    
      const {data,status}=await deletewholePlayListService(playlistId,user);
+     setIsLoading(false);
      if(status===200)
      {
          playListDispatch({type:DELETE_PLAYLIST,payload:data.playlists})

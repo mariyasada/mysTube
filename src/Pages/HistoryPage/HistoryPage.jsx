@@ -1,11 +1,12 @@
 import React from "react";
-import { useLikedAndWatchLaterVideos } from "../../Context";
-import { HistoryCard, LikedVideoCard, SideBar } from "../../Components";
+import { useLikedAndWatchLaterVideos, useVideos } from "../../Context";
+import { HistoryCard, LikedVideoCard, SideBar, Loader } from "../../Components";
 import "../HistoryPage/HistoryPage.css";
 
 export const HistoryPage = () => {
   const { videoState, removeAllHistory } = useLikedAndWatchLaterVideos();
   const { historyList } = videoState;
+  const { isLoading } = useVideos();
   return (
     <div className="history-video-with-sidebar-container flex-center">
       <SideBar />
@@ -33,6 +34,11 @@ export const HistoryPage = () => {
           )}
         </div>
       </div>
+      {isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

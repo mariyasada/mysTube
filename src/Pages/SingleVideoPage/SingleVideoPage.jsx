@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SideBar, VideoCard, Modal } from "../../Components";
+import { SideBar, VideoCard, Modal, Loader } from "../../Components";
 import "./singleVideopage.css";
 import {
   AiOutlineLike,
@@ -15,7 +15,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export const SingleVideoPage = () => {
-  const { videos } = useVideos();
+  const { videos, isLoading } = useVideos();
   const { videoId } = useParams();
   const {
     addToLikeVideo,
@@ -157,6 +157,11 @@ export const SingleVideoPage = () => {
           setShowModal={setShowModal}
           video={singleVideo}
         />
+      )}
+      {isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
       )}
     </div>
   );
