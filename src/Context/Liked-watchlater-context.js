@@ -4,6 +4,7 @@ import { useAuth } from "./Auth-context";
 import { likedvideosReducer } from "./Reducer/likedvideosReducer";
 import toast from "react-hot-toast";
 import {reducerTypes} from "./Reducer/reducertype";
+import { useVideos } from "./video-context";
 
 const {LOAD_LIKEVIDEOS,LOAD_WATCHLATERVIDEOS, ADD_TO_LIKE,REMOVE_FROM_LIKE,ADD_TO_WATCHLATER,REMOVE_FROM_WATCHLATER,ADD_TO_HISTORY,REMOVE_FROM_HISTORY,DELETE_HISTORY,LOAD_HISTORY,LOAD_WATCHLATER_VIDEOS}=reducerTypes;
 
@@ -20,6 +21,7 @@ const initialState={
 const LikedandWatchLaterVideoProvider=({children})=>{
     const [videoState,videoDispatch]=useReducer(likedvideosReducer,initialState);
     const {user}=useAuth();
+    const{setIsLoading}=useVideos();
     
 
     useEffect(()=>{
@@ -45,7 +47,9 @@ const LikedandWatchLaterVideoProvider=({children})=>{
 
 // ADD TO LIKED VIDEO
     const addToLikeVideo=async(video)=>{
+        setIsLoading(true);
         const {data,status}=await addtoLikePageService(video,user);
+        setIsLoading(false);
         if(status===201)
         {
               videoDispatch({type:ADD_TO_LIKE,payload:data.likes})
@@ -58,7 +62,9 @@ const LikedandWatchLaterVideoProvider=({children})=>{
     }
 // REMOVE FROM LIKED VIDEO    
 const removeFromLikedVideo=async(video)=>{
+    setIsLoading(true);
     const {data,status}=await removeFromLikeVideoSevice(video,user);
+    setIsLoading(false);
    
     if(status===200)
         {
@@ -71,7 +77,9 @@ const removeFromLikedVideo=async(video)=>{
 }
 // ADD TO WATCH LATER VIDEO
 const addToWatchLaterVideo =async(video)=>{
+    setIsLoading(true);
     const {data,status}= await addTowatchLaterVideoService(video,user);
+    setIsLoading(false);
     if(status===201)
     {
       videoDispatch({type:ADD_TO_WATCHLATER,payload:data.watchlater}) 
@@ -84,7 +92,9 @@ const addToWatchLaterVideo =async(video)=>{
 }
 // REMOVE FROM WATCHLATER VIDEO
 const removeFromWatchLater=async(video)=>{
+    setIsLoading(true);
     const {data,status}=await removeFromWatchLaterService(video,user);
+    setIsLoading(false);
     if(status===200)
     {
       videoDispatch({type:REMOVE_FROM_WATCHLATER,payload:data.watchlater})
@@ -95,18 +105,24 @@ const removeFromWatchLater=async(video)=>{
     }
 }
 // ADD VIDEO TO HISTORYPAGE
-const addVideoToHistory =async(video)=>{    
+const addVideoToHistory =async(video)=>{ 
+    setIsLoading(true);   
     const {data}=await addVideoToHistoryService(video,user);
+    setIsLoading(false);
     videoDispatch({type:ADD_TO_HISTORY,payload:data.history})
 }
 //  REMOVE VIDEO FROM HISTORYPAGE
 const removeVideoFromHistory =async(video)=>{
+    setIsLoading(true);
     const {data}= await removeVideoFromHistoryService(video,user);
+    setIsLoading(false);
     videoDispatch({type:REMOVE_FROM_HISTORY,payload:data.history})
     toast("Remove video from history", {icon:"✔️"});
 }
 const removeAllHistory=async()=>{
+    setIsLoading(true);
     const {data,status}=await removeAllHistoryService(user);
+    setIsLoading(false);
     if(status===200)
     {
       videoDispatch({type:DELETE_HISTORY,payload:data.history})

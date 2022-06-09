@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer,useState  } from "react";
 import { useNavigate } from "react-router-dom";
 import { logInService,signUpService,signOutService  } from "../Services";
 import toast from "react-hot-toast";
+import { useVideos } from "./video-context";
 
 
 
@@ -20,9 +21,12 @@ const inititalAuthStateValue={
 const AuthProvider=({children})=>{
     const navigateTo=useNavigate();     
     const[user,setUser]  =useState(inititalAuthStateValue);
+    const { isLoading, setIsLoading } = useVideos();
   
-    const signUpHandler =async ({signUpData})=>{       
-        const {data,status}= await signUpService(signUpData);        
+    const signUpHandler =async ({signUpData})=>{ 
+        setIsLoading(true);      
+        const {data,status}= await signUpService(signUpData);   
+        setIsLoading(false);     
              if(status === 201)
                 {
                 localStorage.setItem("auth_token",JSON.stringify(data.encodedToken)); 
@@ -36,14 +40,15 @@ const AuthProvider=({children})=>{
                  }
 }
 
-const logInHandler = async(logInData)=>{   
-    console.log(logInData); 
+const logInHandler = async(logInData)=>{      
     if(logInData.email=="" && logInData.password=="")
     {
         toast("fill the fields",{ icon:  "✔️"  });
     } 
-    else{  
-    const {data,status}=await logInService(logInData);   
+    else{ 
+    setIsLoading(true); 
+    const {data,status}=await logInService(logInData);
+     setIsLoading(false);   
     if(status===200)
     {
         localStorage.setItem("auth_token", JSON.stringify(data.encodedToken));

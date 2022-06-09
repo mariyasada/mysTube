@@ -7,12 +7,15 @@ import {
   guestData,
 } from "../../Context/Constants/AuthConstant";
 import { useAuth } from "../../Context/Auth-context";
+import { Loader } from "../../Components";
+import { useVideos } from "../../Context";
 
 export const LogInPage = () => {
   const [logInData, setLogInData] = useState(initialLogInData);
 
   const [passVisible, setPassVisible] = useState(true);
   const { logInHandler } = useAuth();
+  const { isLoading } = useVideos();
 
   const logInChaneHnadler = (e) => {
     const { name, value } = e.target;
@@ -94,6 +97,11 @@ export const LogInPage = () => {
             </Link>
           </div>
         </form>
+        {isLoading && (
+          <div className="loader">
+            <Loader />
+          </div>
+        )}
       </div>
     </>
   );

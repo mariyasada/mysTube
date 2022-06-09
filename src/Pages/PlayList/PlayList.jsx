@@ -1,13 +1,18 @@
 import React from "react";
-import { LikedVideoCard, Modal, SideBar } from "../../Components";
+import { LikedVideoCard, Modal, SideBar, Loader } from "../../Components";
 import "../PlayList/playlist.css";
 import { FaTrash } from "../../Components/Icons";
-import { useLikedAndWatchLaterVideos, usePlayList } from "../../Context";
+import {
+  useLikedAndWatchLaterVideos,
+  usePlayList,
+  useVideos,
+} from "../../Context";
 
 export const PlayList = () => {
   const { videoState } = useLikedAndWatchLaterVideos();
   const { playlistState, deleteWholePlayList } = usePlayList();
   const { playList } = playlistState;
+  const { isLoading } = useVideos();
   return (
     <div className="playlist-video-with-sidebar-container flex-center">
       <SideBar />
@@ -45,6 +50,11 @@ export const PlayList = () => {
           )}
         </div>
       </div>
+      {isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

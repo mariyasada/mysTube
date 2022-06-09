@@ -1,12 +1,14 @@
 import React from "react";
 import "../LikedVideoCard/Likevideocard.css";
 import { BsTrash } from "../Icons";
-import { useLikedAndWatchLaterVideos } from "../../Context";
+import { useLikedAndWatchLaterVideos, useVideos } from "../../Context";
 import { Link, useLocation } from "react-router-dom";
 import "../LikedVideoCard/Likevideocard.css";
+import { Loader } from "../Loader/Loader";
 
 export const HistoryCard = ({ video }) => {
   const { removeVideoFromHistory } = useLikedAndWatchLaterVideos();
+  const { isLoading } = useVideos();
   return (
     <div className="horizontal-card flex-center">
       <div className="thumbnail-image-conatiner">
@@ -26,6 +28,11 @@ export const HistoryCard = ({ video }) => {
           />
         </div>
       </div>
+      {isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

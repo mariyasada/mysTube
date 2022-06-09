@@ -1,11 +1,12 @@
 import React from "react";
-import { LikedVideoCard, SideBar } from "../../Components";
-import { useLikedAndWatchLaterVideos } from "../../Context";
+import { LikedVideoCard, SideBar, Loader } from "../../Components";
+import { useLikedAndWatchLaterVideos, useVideos } from "../../Context";
 import "../LikedVideoPage/Likevideopage.css";
 
 export const LikeVideoPage = () => {
   const { videoState } = useLikedAndWatchLaterVideos();
   const { likedList } = videoState;
+  const { isLoading } = useVideos();
   return (
     <div className="liked-video-with-sidebar-container flex-center">
       <SideBar />
@@ -21,6 +22,11 @@ export const LikeVideoPage = () => {
           )}
         </div>
       </div>
+      {isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

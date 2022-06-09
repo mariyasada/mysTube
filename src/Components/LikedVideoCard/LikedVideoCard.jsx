@@ -8,9 +8,14 @@ import {
   FaBookmark,
   CgPlayListRemove,
 } from "../Icons";
-import { useLikedAndWatchLaterVideos, usePlayList } from "../../Context";
+import {
+  useLikedAndWatchLaterVideos,
+  usePlayList,
+  useVideos,
+} from "../../Context";
 import { Link, useLocation } from "react-router-dom";
 import { Modal } from "../playListModal/Modal";
+import { Loader } from "../Loader/Loader";
 
 export const LikedVideoCard = ({ video, playlistId }) => {
   const {
@@ -25,6 +30,7 @@ export const LikedVideoCard = ({ video, playlistId }) => {
   const [isShowModal, setShowModal] = useState(false);
   const { playlistState, deleteVideoFromPlayList } = usePlayList();
   const { playList } = playlistState;
+  const { isLoading } = useVideos();
 
   return (
     <div className="horizontal-card flex-center">
@@ -80,6 +86,11 @@ export const LikedVideoCard = ({ video, playlistId }) => {
           />
         )}
       </div>
+      {isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

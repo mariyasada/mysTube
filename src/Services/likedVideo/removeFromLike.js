@@ -6,7 +6,6 @@ export const removeFromLikeVideoSevice=async(video,user)=>{
         const {data,status}=await axios.delete(`/api/user/likes/${video._id}`,{
             headers:{authorization: user.authenticationToken}
         })
-        console.log(data);
         return {data,status};
     }
     catch(err)

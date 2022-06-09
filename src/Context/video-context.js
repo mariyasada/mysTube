@@ -32,7 +32,7 @@ const VideoProvider =({children})=>{
 
     const FilteredData=getFilteredByCategory(state,videos);
     const FinalFilteredData=getFilteredBySearchQuery(state,FilteredData)
-    return <VideoContext.Provider value={{videos,setVideos,state,dispatch,FilteredData,FinalFilteredData,isLoading}}>{children}</VideoContext.Provider>
+    return <VideoContext.Provider value={{videos,setVideos,state,dispatch,FilteredData,FinalFilteredData,isLoading,setIsLoading}}>{children}</VideoContext.Provider>
 }
 
 const useVideos=()=>useContext(VideoContext);

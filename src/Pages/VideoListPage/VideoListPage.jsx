@@ -11,7 +11,11 @@ export const VideoListPage = () => {
       <SideBar />
       <div className="filter-video-container flex-center flex-direction-column">
         <FilterBar />
-        {isLoading && <Loader />}
+        {isLoading && (
+          <div className="loader">
+            <Loader />
+          </div>
+        )}
         <div className="Videocard-listing-grid-column-layout">
           {FinalFilteredData.map((video) => {
             return <VideoCard video={video} key={video._id} />;
