@@ -11,7 +11,7 @@ import {
 } from "../Icons";
 import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useAuth, useVideos } from "../../Context";
 import { reducerTypes } from "../../Context/Reducer/reducertype";
 
@@ -20,6 +20,7 @@ export const NavBar = () => {
   const [open, setOpen] = useState(false);
   const { logOutHandler, user } = useAuth();
   const { loginStatus } = user;
+  const { pathname } = useLocation();
 
   const getActiveLink = ({ isActive }) => ({
     color: isActive ? "red" : "#603d8f",
@@ -50,20 +51,22 @@ export const NavBar = () => {
         </div>
       </div>
 
-      <div className="Header-input-center flex-center border-round">
-        <BsSearch className="search-icon" />
-        <input
-          type="text"
-          className="input-searchbox"
-          placeholder="Search"
-          onChange={(e) =>
-            dispatch({
-              type: reducerTypes.SEARCH_BY_QUERY,
-              payload: e.target.value,
-            })
-          }
-        />
-      </div>
+      {pathname === "/videopage" && (
+        <div className="Header-input-center flex-center border-round">
+          <BsSearch className="search-icon" />
+          <input
+            type="text"
+            className="input-searchbox"
+            placeholder="Search"
+            onChange={(e) =>
+              dispatch({
+                type: reducerTypes.SEARCH_BY_QUERY,
+                payload: e.target.value,
+              })
+            }
+          />
+        </div>
+      )}
 
       <div className="Header-nav-icon-right flex-center">
         <span className="icon-with-title">

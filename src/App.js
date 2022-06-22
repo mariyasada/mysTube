@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 
 
 
-function App() {
+function App() {  
   return (
     <div className="App" >
         <NavBar/> 
