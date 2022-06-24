@@ -11,8 +11,9 @@ import {
   FaRegBookmark,
 } from "../../Components/Icons";
 import { useAuth, useLikedAndWatchLaterVideos, useVideos } from "../../Context";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const SingleVideoPage = () => {
   const { videos, isLoading } = useVideos();
@@ -32,8 +33,9 @@ export const SingleVideoPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [listofComments, setListofComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
+  const navigate = useNavigate();
   const {
-    user: { userName },
+    user: { userName, loginStatus },
   } = useAuth();
 
   const postACommentHandler = (inputvalue) => {
@@ -88,7 +90,14 @@ export const SingleVideoPage = () => {
               <AiOutlineLike
                 className="video-iframe-icon"
                 title="like"
-                onClick={() => addToLikeVideo(singleVideo)}
+                onClick={() => {
+                  if (loginStatus) {
+                    addToLikeVideo(singleVideo);
+                  } else {
+                    toast("please login to continue", { icon: "✔️" });
+                    navigate("/loginpage");
+                  }
+                }}
               />
             )}
 
@@ -102,13 +111,27 @@ export const SingleVideoPage = () => {
               <FaRegBookmark
                 className="video-iframe-icon"
                 title="watch later"
-                onClick={() => addToWatchLaterVideo(singleVideo)}
+                onClick={() => {
+                  if (loginStatus) {
+                    addToWatchLaterVideo(singleVideo);
+                  } else {
+                    toast("please login to continue", { icon: "✔️" });
+                    navigate("/loginpage");
+                  }
+                }}
               />
             )}
             <MdPlaylistAdd
               className="video-iframe-icon"
               title="save to playlist"
-              onClick={() => setShowModal(true)}
+              onClick={() => {
+                if (loginStatus) {
+                  setShowModal(true);
+                } else {
+                  toast("please login to continue", { icon: "✔️" });
+                  navigate("/loginpage");
+                }
+              }}
             />
           </div>
         </div>
@@ -124,7 +147,14 @@ export const SingleVideoPage = () => {
             />
             <button
               className="btn btn-for-comment"
-              onClick={() => postACommentHandler(commentInput)}
+              onClick={() => {
+                if (loginStatus) {
+                  postACommentHandler(commentInput);
+                } else {
+                  toast("please login to continue", { icon: "✔️" });
+                  navigate("/loginpage");
+                }
+              }}
             >
               Post
             </button>
@@ -157,11 +187,6 @@ export const SingleVideoPage = () => {
           setShowModal={setShowModal}
           video={singleVideo}
         />
-      )}
-      {isLoading && (
-        <div className="loader">
-          <Loader />
-        </div>
       )}
     </div>
   );

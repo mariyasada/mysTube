@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const signUpService=async(signUpData)=>{
-    console.log(signUpData)
+const signUpService=async(signUpData,setIsLoading)=>{
    
         try {
-        const {data,status} =await axios.post("/api/auth/signup",signUpData)           
+            setIsLoading(true);
+        const {data,status} =await axios.post("/api/auth/signup",signUpData)  
+        setIsLoading(false);         
             return {data,status};    
         }
         catch{

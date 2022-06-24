@@ -17,7 +17,7 @@ const VideoProvider =({children})=>{
     useEffect(()=> {
         (async ()=>{
             try{
-                 setIsLoading(true)
+                  setIsLoading(true);
                   const {data}=await axios.get("/api/videos");
                   setIsLoading(false);
                   setVideos(data.videos);

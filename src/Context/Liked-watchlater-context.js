@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import {reducerTypes} from "./Reducer/reducertype";
 import { useVideos } from "./video-context";
 
-const {LOAD_LIKEVIDEOS,LOAD_WATCHLATERVIDEOS, ADD_TO_LIKE,REMOVE_FROM_LIKE,ADD_TO_WATCHLATER,REMOVE_FROM_WATCHLATER,ADD_TO_HISTORY,REMOVE_FROM_HISTORY,DELETE_HISTORY,LOAD_HISTORY,LOAD_WATCHLATER_VIDEOS}=reducerTypes;
+const {LOAD_LIKEVIDEOS, ADD_TO_LIKE,REMOVE_FROM_LIKE,ADD_TO_WATCHLATER,REMOVE_FROM_WATCHLATER,ADD_TO_HISTORY,REMOVE_FROM_HISTORY,DELETE_HISTORY,LOAD_HISTORY,LOAD_WATCHLATER_VIDEOS}=reducerTypes;
 
 
 
@@ -105,10 +105,8 @@ const removeFromWatchLater=async(video)=>{
     }
 }
 // ADD VIDEO TO HISTORYPAGE
-const addVideoToHistory =async(video)=>{ 
-    setIsLoading(true);   
+const addVideoToHistory =async(video)=>{    
     const {data}=await addVideoToHistoryService(video,user);
-    setIsLoading(false);
     videoDispatch({type:ADD_TO_HISTORY,payload:data.history})
 }
 //  REMOVE VIDEO FROM HISTORYPAGE

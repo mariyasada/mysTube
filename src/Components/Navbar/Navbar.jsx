@@ -11,7 +11,7 @@ import {
 } from "../Icons";
 import { Hamburger } from "../index";
 import "../Hamburger/Hamburger.css";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAuth, useVideos } from "../../Context";
 import { reducerTypes } from "../../Context/Reducer/reducertype";
 
@@ -51,9 +51,9 @@ export const NavBar = () => {
         </div>
       </div>
 
-      {pathname === "/videopage" && (
-        <div className="Header-input-center flex-center border-round">
-          <BsSearch className="search-icon" />
+      <div className="Header-input-center flex-center border-round">
+        <BsSearch className="search-icon" />
+        <Link to="/videopage">
           <input
             type="text"
             className="input-searchbox"
@@ -65,8 +65,8 @@ export const NavBar = () => {
               })
             }
           />
-        </div>
-      )}
+        </Link>
+      </div>
 
       <div className="Header-nav-icon-right flex-center">
         <span className="icon-with-title">

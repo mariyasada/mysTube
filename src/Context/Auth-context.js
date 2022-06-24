@@ -23,10 +23,9 @@ const AuthProvider=({children})=>{
     const[user,setUser]  =useState(inititalAuthStateValue);
     const { isLoading, setIsLoading } = useVideos();
   
-    const signUpHandler =async ({signUpData})=>{ 
-        setIsLoading(true);      
-        const {data,status}= await signUpService(signUpData);   
-        setIsLoading(false);     
+    const signUpHandler =async ({signUpData})=>{         
+          
+        const {data,status}= await signUpService(signUpData,setIsLoading);       
              if(status === 201)
                 {
                 localStorage.setItem("auth_token",JSON.stringify(data.encodedToken)); 
@@ -38,17 +37,16 @@ const AuthProvider=({children})=>{
                 email:data.createdUser.email})
                   navigateTo("/videopage");
                  }
+                
 }
 
 const logInHandler = async(logInData)=>{      
-    if(logInData.email=="" && logInData.password=="")
+    if(logInData.email ==="" || logInData.password ==="")
     {
         toast("fill the fields",{ icon:  "✔️"  });
     } 
-    else{ 
-    setIsLoading(true); 
-    const {data,status}=await logInService(logInData);
-     setIsLoading(false);   
+    else{  
+    const {data,status}=await logInService(logInData,setIsLoading);  
     if(status===200)
     {
         localStorage.setItem("auth_token", JSON.stringify(data.encodedToken));
@@ -59,7 +57,6 @@ const logInHandler = async(logInData)=>{
                 userName:data.foundUser.firstName,
                 email:data.foundUser.email})   
          toast("Successfully loggedIn", { icon:  "✔️"  });
-    
         navigateTo("/videopage");
     }
     else{

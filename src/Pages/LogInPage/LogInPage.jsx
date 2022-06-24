@@ -16,6 +16,7 @@ export const LogInPage = () => {
   const [passVisible, setPassVisible] = useState(true);
   const { logInHandler } = useAuth();
   const { isLoading } = useVideos();
+  console.log(isLoading, "loader");
 
   const logInChaneHnadler = (e) => {
     const { name, value } = e.target;

@@ -25,14 +25,23 @@ export const SignUpPage = () => {
   };
 
   const passwordMathcingHandler = (e, pwd1, pwd2) => {
-    if (pwd1 === pwd2) {
-      seterrMessage("");
-      e.preventDefault();
-      signUpHandler({ signUpData });
+    if (
+      signUpData.firstName === "" ||
+      signUpData.lastname === "" ||
+      signUpData.email === "" ||
+      signUpData.password === ""
+    ) {
+      toast("fill all the details in fields", { icon: "✔" });
     } else {
-      e.preventDefault();
-      seterrMessage("password and confirmpassord doesn't match");
-      navigate("/signup");
+      if (pwd1 === pwd2) {
+        seterrMessage("");
+        e.preventDefault();
+        signUpHandler({ signUpData });
+      } else {
+        e.preventDefault();
+        seterrMessage("password and confirmpassord doesn't match");
+        navigate("/signup");
+      }
     }
   };
   return (

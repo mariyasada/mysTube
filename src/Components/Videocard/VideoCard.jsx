@@ -28,7 +28,7 @@ export const VideoCard = ({ video }) => {
   return (
     <div className="video-card-container flex-center">
       <div className="image-conatiner">
-        <Link to={loginStatus ? `/video/${_id}` : `/loginpage`}>
+        <Link to={`/video/${_id}`}>
           <img className="image-of-video" src={thumbnail} alt={title} />
         </Link>
       </div>
