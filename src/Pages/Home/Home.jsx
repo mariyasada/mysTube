@@ -8,11 +8,6 @@ export const Home = () => {
   return (
     <div className="home-content-container flex-center">
       <div className="banner-image-container flex-center">
-        {/* <img
-          src="./assets/banner.jpg"
-          alt="banner-image"
-          className="banner-image"
-        /> */}
         <ImageSlider />
 
         <div className="quote-container">

@@ -4,18 +4,11 @@
   gap: 1rem;
   cursor: pointer !important;
 }
-.row-reverse {
-  flex-direction: row-reverse;
-}
 .category-image-container {
   margin-top: 2rem;
   width: 40%;
   justify-content: center;
   object-fit: contain;
-}
-.category-description-container-reverse {
-  align-items: flex-end;
-  margin-left: 16rem;
 }
 .category-image {
   cursor: pointer;
@@ -23,7 +16,6 @@
   width: 41rem;
   padding: 0.8rem;
   border: 2px solid var(--primary-color);
-  /* border: 2px solid var(--white-color); */
 }
 .category-description-container {
   width: 60%;
@@ -36,7 +28,6 @@
 .category-title {
   font-size: 3rem;
   color: var(--primary-dark-color);
-  /* color: white; */
 }
 .category-description {
   font-size: 2rem;

@@ -68,7 +68,7 @@
   }
   .Header-input-center {
     position: absolute;
-    top: 9rem;
+    top: 8.4rem;
     z-index: 150;
     background: var(--background-purple);
     width: 95%;

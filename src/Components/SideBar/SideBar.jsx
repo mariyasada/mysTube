@@ -1,18 +1,12 @@
 import React from "react";
-import {
-  FaHome,
-  FaBookmark,
-  MdExplore,
-  MdOutlinePlaylistAdd,
-  MdHistory,
-  FaUserCircle,
-} from "../Icons";
+import { FaUserCircle } from "../Icons";
 import { AiTwotoneLike } from "react-icons/ai";
 import "./SideBar.css";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../../Context";
+import { useAuth, useVideos } from "../../Context";
 import { sidebarOption } from "./sidebarConstants";
+import { reducerTypes } from "../../Context/Reducer/reducertype";
 
 export const SideBar = () => {
   const {
@@ -22,6 +16,7 @@ export const SideBar = () => {
     color: isActive ? "white" : "",
     background: isActive ? "#7b19f7" : "",
   });
+  const { state, dispatch } = useVideos();
   return (
     <aside className="sidebar-item-container flex-center">
       <ul>
@@ -32,6 +27,7 @@ export const SideBar = () => {
               key={name}
               className="sidebar-item-with-icon flex-center"
               style={getActiveStyleLink}
+              onClick={() => dispatch({ type: reducerTypes.CLEAR_SEARCH })}
             >
               <Icon.type className="sidebar-icon" />
               <h2 className="sidebar-item-title">{name}</h2>

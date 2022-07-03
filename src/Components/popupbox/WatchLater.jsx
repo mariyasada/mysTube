@@ -16,6 +16,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "../playListModal/Modal";
 import "../playListModal/modal.css";
+import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 
 export const WatchLaterBox = ({ video, setIsOpen }) => {
   const {
@@ -88,7 +89,7 @@ export const WatchLaterBox = ({ video, setIsOpen }) => {
             className="icon-title-container flex-center"
             onClick={checkStatusForLikedVideo}
           >
-            <AiFillLike className="icon-md" />
+            <AiOutlineLike className="icon-md" />
             <p className="item-title">Liked Videos</p>
           </li>
         )}

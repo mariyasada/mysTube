@@ -58,6 +58,7 @@ export const NavBar = () => {
             type="text"
             className="input-searchbox"
             placeholder="Search"
+            value={state.searchByQuery}
             onChange={(e) =>
               dispatch({
                 type: reducerTypes.SEARCH_BY_QUERY,

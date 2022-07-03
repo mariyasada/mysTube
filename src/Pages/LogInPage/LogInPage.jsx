@@ -62,15 +62,6 @@ export const LogInPage = () => {
               )}
             </span>
           </div>
-          <div className="remeber-and-forgotpasword-container flex-center">
-            <label htmlFor="remeberme" className="rememberme-with-checkbox">
-              <input type="checkbox" className="input-rememberme" />
-              Remember me
-            </label>
-            <Link to="/" className="forgotpassword-text">
-              Forgot Password
-            </Link>
-          </div>
           <span>
             <button
               className="btn login-btn border-round"

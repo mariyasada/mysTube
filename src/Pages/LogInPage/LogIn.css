@@ -54,8 +54,7 @@ form {
 .btn.login-btn,
 .btn.login-btn-outline {
   background-color: var(--primary-dark-color);
-  width: 29rem;
-  min-width: 25rem;
+  min-width: 29rem;
   margin-top: 2rem;
   font-weight: bold;
   cursor: pointer;
@@ -72,7 +71,7 @@ form {
   justify-content: center;
   font-size: 1.7rem;
   gap: 3rem;
-  margin: 1rem 0 2rem 0;
+  margin: 1.5rem 0 2rem 0;
   color: var(--primary-color);
 }
 .show-hide-toggle-icon {
@@ -101,5 +100,9 @@ form {
   }
   .show-hide-toggle-icon {
     right: 6rem;
+  }
+  .btn.login-btn,
+  .btn.login-btn-outline {
+    min-width: 25rem;
   }
 }

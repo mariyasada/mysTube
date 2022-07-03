@@ -7,16 +7,16 @@
 }
 .playlist-modal-container {
   height: auto;
-  width: 20rem;
+  width: 28rem;
   background: linear-gradient(
     120deg,
     var(--modal-background),
     var(--primary-dark-color)
   );
-  padding: 1rem;
+  padding: 1.3rem;
   position: fixed;
   top: 40%;
-  left: 45%;
+  left: 43%;
   z-index: 10;
   color: black;
 }
@@ -34,6 +34,7 @@
 .playlist-item {
   width: 80%;
   padding: 2px;
+  margin-top: 3px;
   font-weight: bolder;
   margin-left: 1rem;
   text-align: left;

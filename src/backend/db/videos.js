@@ -151,15 +151,15 @@ export const videos = [
     thumbnail: "https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/WozBLihWFBE-HD_LOaKYa2ix.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491200706"
   },
   {
-    _id:"iEO4J-yFttE", 
-    title:"Infinity Ring Tutorial- alcohol inks",
-    channelName: "Natalie",
-    views: "23k views",
-    date: "3 years ago",
+    _id:"oBQJaSrno2I", 
+    title:"Alcohol ink - 5 tips on how to do less is more",
+    channelName: "Randi H Art",
+    views: "45k views",
+    date: "6 Mar,2021",
     categoryName: "Alcoholic Ink Art",
-    duration:"4:00",
-    avatarImage:"https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/you12_AASJ-ydmBs.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491274940",
-    thumbnail: "https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/iEO4J-yFttE-HD_ZmGtI0ocj.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491200655"
+    duration:"13:51",
+    avatarImage:"https://ik.imagekit.io/qrhnvir8bf0/videolibararyimages/you9_7enTQ41Wv.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649491274596",
+    thumbnail: "https://ik.imagekit.io/qrhnvir8bf0/oBQJaSrno2I-HD_1qOMgRmoD.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656572271749"
   },
   {
     _id:"SQuKUDU9Lxc", 
