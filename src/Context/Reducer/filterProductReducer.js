@@ -9,7 +9,7 @@ export const filterProductReducer=(state,action)=>{
           return {...state,searchByQuery:action.payload} 
           
        case CLEAR_SEARCH:
-         return{ currentCategory:"All",searchByQuery:""}   
+         return{...state,searchByQuery:""}   
           
    
        default:
